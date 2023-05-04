@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mlrcc/features/home/views/home_view.dart';
+import 'package:mlrcc/features/profile/views/user_profile.dart';
 import 'package:mlrcc/theme/pallete.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
@@ -31,7 +32,7 @@ class _NavViewState extends ConsumerState<NavView> {
       HomeView(),
       Container(color: Colors.blueAccent,),
       Container(color: Colors.grey,),
-      Container(color: Colors.yellowAccent,),
+      UserProfileView(),
     ];
     return Scaffold(
       backgroundColor: Pallete.backgroundColor,
