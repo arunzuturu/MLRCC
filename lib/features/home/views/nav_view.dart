@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mlrcc/features/home/views/home_view.dart';
 import 'package:mlrcc/theme/pallete.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
@@ -28,7 +29,7 @@ class _NavViewState extends ConsumerState<NavView> {
   @override
   Widget build(BuildContext context) {
     _children = [
-      Container(color: Colors.red,),
+      HomeView(),
       Container(color: Colors.blueAccent,),
       Container(color: Colors.grey,),
       Container(color: Colors.yellowAccent,),

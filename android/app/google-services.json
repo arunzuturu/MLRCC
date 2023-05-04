@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "988853543636-5ronh5t1mpi2nicgp7eqbripjr83tbn4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lightheads.mlrcc.mlrcc",
+            "certificate_hash": "07f2528011a56a08f4e072fc47484e9c1d78010f"
+          }
+        },
+        {
+          "client_id": "988853543636-cot51fpfl1u576aoaddv40ktll4tgv4u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lightheads.mlrcc.mlrcc",
+            "certificate_hash": "2024d710179fd605ed4791922cf59e387e3317e2"
+          }
+        },
+        {
           "client_id": "988853543636-al2sv6oasnn2u9egf8sn8qko2s040k1p.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +45,13 @@
             {
               "client_id": "988853543636-4deq48lsm921u49jo3k40h94hm6q9paa.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "988853543636-gduf5kbmb7pnbjnq6pqaa2uj95l4mm5h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lightheads.mlrcc.mlrcc"
+              }
             }
           ]
         }

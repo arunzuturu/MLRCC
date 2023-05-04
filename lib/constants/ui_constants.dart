@@ -20,3 +20,26 @@ class UIConstants {
     const Text ('Profile'),
   ];
 }
+
+TextStyle LargeHeading = new TextStyle(
+  color: Pallete.accentColor,
+    fontSize: 54,
+    letterSpacing: 0.27,
+  fontWeight: FontWeight.w600
+);
+TextStyle LargeHeading2 = new TextStyle(
+    color: Pallete.accentColor,
+    fontSize: 24,
+    letterSpacing: 0.27,
+    fontWeight: FontWeight.w600
+);
+TextStyle subHeading = new TextStyle(
+  color: Color(0xffC4C9CC),
+  fontSize: 18,
+  fontWeight: FontWeight.w300,
+);
+TextStyle Heading1 = new TextStyle(
+  color: Pallete.accentColor,
+  fontSize: 34,
+  fontWeight: FontWeight.w600,
+);

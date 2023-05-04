@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/features/auth/controller/auth_controller.dart';
 import 'package:mlrcc/theme/pallete.dart';
 
@@ -17,6 +18,7 @@ class LoginView extends ConsumerWidget {
       color: Pallete.backgroundColor,
       child: SafeArea(
         child: Scaffold(
+          backgroundColor: Pallete.whiteColor,
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -34,24 +36,15 @@ class LoginView extends ConsumerWidget {
                       children: [
                         Text(
                           'Welcome',
-                          style: TextStyle(
-                            fontSize: 50,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: LargeHeading,
                         ),
                         Text(
                           'You have been missed!',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w300,
-                          ),
+                          style: LargeHeading2,
                         ),
                         Text(
                           'Login to explore options',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w100,
-                          ),
+                          style: subHeading,
                         ),
                         Spacer(),
                         
