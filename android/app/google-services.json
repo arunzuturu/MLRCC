@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "988853543636",
+    "project_id": "mlrcc-3206a",
+    "storage_bucket": "mlrcc-3206a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988853543636:android:ea69d6cd553293502dd141",
+        "android_client_info": {
+          "package_name": "com.lightheads.mlrcc.mlrcc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988853543636-al2sv6oasnn2u9egf8sn8qko2s040k1p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyuwIM68p2855JaJ9l7E6CGUDKKTmfcIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988853543636-4deq48lsm921u49jo3k40h94hm6q9paa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
