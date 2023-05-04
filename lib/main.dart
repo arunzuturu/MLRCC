@@ -31,7 +31,7 @@ class MyApp extends ConsumerWidget {
               if (user != null) {
                 return const NavView();
               }
-              return const NavView();
+              return const LoginView();
             },
             error: (error, st) => ErrorPage(error: error.toString()),
             loading: () {
