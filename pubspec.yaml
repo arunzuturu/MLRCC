@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
+  device_preview: ^1.1.0
   firebase_auth: ^4.4.2
   firebase_core: ^2.10.0
   flutter:
@@ -79,7 +80,5 @@ flutter:
         - asset: assets/fonts/Neue/NeueHaasDisplayRoman.ttf
         - asset: assets/fonts/Neue/NeueHaasDisplayBold.ttf
           weight: 700
-    
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

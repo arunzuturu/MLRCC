@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mlrcc/apis/auth_api.dart';
 import 'package:mlrcc/apis/user_api.dart';
-import 'package:mlrcc/core/enums/user_is_new.dart';
 import 'package:mlrcc/core/utils.dart';
+import 'package:mlrcc/features/auth/views/insert_user_details.dart';
 
 final authControllerProvider =
     StateNotifierProvider<AuthController, bool>((ref) {
@@ -38,18 +38,16 @@ class AuthController extends StateNotifier<bool> {
     state = true;
     final user = await _authAPI.signInWithGoogle(context);
     state = false;
-    user.fold((l) => showSnackBar(context, l.message), (userAccountType) {
-      print(userAccountType);
-      // _ref.read(userProvider.notifier).update((state) => userModel);
-      if (userAccountType == UserAccountType.newuser) {
-        _userAPI.saveUserData();
+    user.fold((l) => showSnackBar(context, l.message), (userCredential) {
+      if (userCredential.user!.email!.contains('mlrinstitutions.ac.in')) {
+        if (userCredential.additionalUserInfo!.isNewUser) {
+          Navigator.push(context, InsertUserDetailsView.route());
+        }
+        _userAPI.getUserData(userCredential.user!.uid);
+      } else {
+        _authAPI.signOut();
+        showSnackBar(context, 'Please use your @mlrinstitutions.ac.in email');
       }
-      // TODO: get user data and store it onto a provider
     });
   }
-  // Future<UserModal> getUserData(String uid) async {
-  //   final document = await _userAPI.getUserData(uid);
-  //   final updatedUser = UserModal.fromMap(document.data);
-  //   return updatedUser;
-  // }
 }

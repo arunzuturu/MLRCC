@@ -36,11 +36,11 @@ class LoginView extends ConsumerWidget {
                       children: [
                         Text(
                           'Welcome',
-                          style: LargeHeading,
+                          style: largeHeading,
                         ),
                         Text(
                           'You have been missed!',
-                          style: LargeHeading2,
+                          style: largeHeading2,
                         ),
                         Text(
                           'Login to explore options',

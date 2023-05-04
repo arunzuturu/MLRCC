@@ -14,10 +14,10 @@ abstract class IUserAPI {
 
 class UserAPI extends IUserAPI{
   @override
-  // Future getUserData(String uid) {
-  //   // TODO: implement getUserData
-  //   throw UnimplementedError();
-  // }
+  Future getUserData(String uid) {
+    // TODO: implement getUserData
+    throw UnimplementedError();
+  }
 
   @override
   // saveUserData(userModal) {

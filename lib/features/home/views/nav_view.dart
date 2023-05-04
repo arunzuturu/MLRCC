@@ -19,7 +19,6 @@ class NavView extends ConsumerStatefulWidget {
 class _NavViewState extends ConsumerState<NavView> {
   int _currentIndex = 0;
   int _page = 0;
-  final appbar = UIConstants.appBar();
   void onPageChange(int index) {
     setState(() {
       _page = index;

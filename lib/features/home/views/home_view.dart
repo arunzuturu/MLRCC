@@ -5,13 +5,15 @@ import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/features/auth/controller/auth_controller.dart';
 import 'package:mlrcc/theme/pallete.dart';
 
+import '../../../common/common.dart';
+
 class HomeView extends ConsumerWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       width: size.width,
       height: size.height,
       child: SafeArea(
@@ -21,24 +23,19 @@ class HomeView extends ConsumerWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("Community", style: Heading1,),
-                    ),
-                    Row(
-                      children: [
-                        IconButton(onPressed: (){}, icon: LineIcon.bell(
+                CustomAppBar(
+                  title: 'Community',
+                  actions: [
+                    IconButton(
+                        onPressed: () {},
+                        icon: LineIcon.bell(
                           size: 30,
                         )),
-                        IconButton(onPressed: (){}, icon: LineIcon.comments(
+                    IconButton(
+                        onPressed: () {},
+                        icon: LineIcon.comments(
                           size: 30,
                         )),
-                      ],
-                    )
-
                   ],
                 ),
               ],

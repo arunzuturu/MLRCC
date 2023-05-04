@@ -10,6 +10,7 @@ class UserModal {
   final String year;
   final String rollno;
   final String semester;
+  final String section;
   UserModal({
     required this.uid,
     required this.name,
@@ -19,6 +20,7 @@ class UserModal {
     required this.year,
     required this.rollno,
     required this.semester,
+    required this.section,
   });
 
   UserModal copyWith({
@@ -30,6 +32,7 @@ class UserModal {
     String? year,
     String? rollno,
     String? semester,
+    String? section,
   }) {
     return UserModal(
       uid: uid ?? this.uid,
@@ -40,6 +43,7 @@ class UserModal {
       year: year ?? this.year,
       rollno: rollno ?? this.rollno,
       semester: semester ?? this.semester,
+      section: section ?? this.section,
     );
   }
 
@@ -53,6 +57,7 @@ class UserModal {
       'year': year,
       'rollno': rollno,
       'semester': semester,
+      'section': section,
     };
   }
 
@@ -66,6 +71,7 @@ class UserModal {
       year: map['year'] as String,
       rollno: map['rollno'] as String,
       semester: map['semester'] as String,
+      section: map['section'] as String,
     );
   }
 
@@ -75,7 +81,7 @@ class UserModal {
 
   @override
   String toString() {
-    return 'UserModal(uid: $uid, name: $name, email: $email, phone: $phone, branch: $branch, year: $year, rollno: $rollno, semester: $semester)';
+    return 'UserModal(uid: $uid, name: $name, email: $email, phone: $phone, branch: $branch, year: $year, rollno: $rollno, semester: $semester, section: $section)';
   }
 
   @override
@@ -90,7 +96,8 @@ class UserModal {
       other.branch == branch &&
       other.year == year &&
       other.rollno == rollno &&
-      other.semester == semester;
+      other.semester == semester &&
+      other.section == section;
   }
 
   @override
@@ -102,6 +109,7 @@ class UserModal {
       branch.hashCode ^
       year.hashCode ^
       rollno.hashCode ^
-      semester.hashCode;
+      semester.hashCode ^
+      section.hashCode;
   }
 }
