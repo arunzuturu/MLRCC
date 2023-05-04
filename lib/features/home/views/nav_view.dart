@@ -5,17 +5,17 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import '../../../constants/ui_constants.dart';
 
-class HomeView extends ConsumerStatefulWidget {
+class NavView extends ConsumerStatefulWidget {
   static route() => MaterialPageRoute(
-        builder: (context) => const HomeView(),
+        builder: (context) => const NavView(),
       );
-  const HomeView({super.key});
+  const NavView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _HomeViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _NavViewState();
 }
 
-class _HomeViewState extends ConsumerState<HomeView> {
+class _NavViewState extends ConsumerState<NavView> {
   int _currentIndex = 0;
   int _page = 0;
   final appbar = UIConstants.appBar();
