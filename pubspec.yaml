@@ -72,6 +72,11 @@ flutter:
           weight: 700
         - asset: assets/fonts/Poppins/Poppins-Italic.ttf
           style: italic
+    - family: Neue
+      fonts:
+        - asset: assets/fonts/Neue/NeueHaasDisplayRoman.ttf
+        - asset: assets/fonts/Neue/NeueHaasDisplayBold.ttf
+          weight: 700
     
   #
   # For details regarding fonts from package dependencies,

@@ -3,7 +3,7 @@ import 'package:mlrcc/theme/pallete.dart';
 
 class AppTheme {
   static ThemeData theme = ThemeData(
-    fontFamily: 'Poppins',
+    fontFamily: 'Neue',
     scaffoldBackgroundColor: Pallete.backgroundColor,
     appBarTheme: const AppBarTheme(
       backgroundColor: Pallete.backgroundColor,

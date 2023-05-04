@@ -17,64 +17,11 @@ class LoginView extends ConsumerWidget {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [  
-              SemiCircle(),
-              SizedBox(
-                height: size.height * 0.45,
+              Container(
+
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 20.0),
-                child: Text(
-                  'MLRIT',
-                  style: TextStyle(
-                    fontSize: 80,
-                    color: Pallete.orangeColor,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 20.0),
-                child: Text(
-                  'College Connect',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Pallete.blackColor,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                        100), // add this line for rounded edges
-                  ),
-                  backgroundColor: Pallete.greenColor,
-                  fixedSize: Size(
-                    size.width * 0.7,
-                    size.height * 0.07,
-                  ),
-                  // side: const BorderSide(color: Pallete.greenColor, width: 2.0),
-                ),
-                onPressed: () {
-                  ref
-                      .read(authControllerProvider.notifier)
-                      .signInWithGoogle(context);
-                },
-                child: const Text(
-                  'Sign in with Google',
-                  style: TextStyle(
-                      color: Pallete.blackColor,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(
-                height: size.height * 0.08,
-              ),
+              Text('MLR College Connect',
+                  style: Theme.of(context).textTheme.headline4),
             ],
           ),
         ),
