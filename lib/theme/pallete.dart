@@ -6,6 +6,7 @@ class Pallete {
   static const Color greenColor = Colors.greenAccent;
   static const Color whiteColor = Colors.white;
   static const Color greyColor = Colors.grey;
+  static const Color secondaryColor = Color(0xFF2D3945);
   static const Color orangeColor = Colors.deepOrangeAccent;
   static const Color blackColor = Colors.black;
 }

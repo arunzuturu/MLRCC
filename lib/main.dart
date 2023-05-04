@@ -8,7 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'common/common.dart';
 import 'features/auth/views/login_view.dart';
-import 'features/home/views/home_view.dart';
+import 'features/home/views/nav_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +29,7 @@ class MyApp extends ConsumerWidget {
         home: ref.watch(curentUserAccountProvider).when(
             data: (user) {
               if (user != null) {
-                return const HomeView();
+                return const NavView();
               }
               return const LoginView();
             },
