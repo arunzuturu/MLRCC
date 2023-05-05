@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mlrcc/features/explore/views/explore.dart';
 import 'package:mlrcc/features/home/views/home_view.dart';
 import 'package:mlrcc/features/noticeboard/controller/nb_posts_controller.dart';
 import 'package:mlrcc/features/noticeboard/views/notice_board.dart';
@@ -49,9 +50,7 @@ class _NavViewState extends ConsumerState<NavView> {
     _children = [
       HomeView(),
       NoticeBoardView(),
-      Container(
-        color: Colors.grey,
-      ),
+      ExploreView(),
       UserProfileView(),
     ];
     return Scaffold(

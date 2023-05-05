@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icon.dart';
@@ -9,6 +10,7 @@ import 'package:mlrcc/theme/pallete.dart';
 import 'package:card_swiper/card_swiper.dart';
 import '../../../common/common.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
+import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 class HomeView extends ConsumerWidget {
   const HomeView({super.key});
 
@@ -20,13 +22,11 @@ class HomeView extends ConsumerWidget {
 
   final pPostsList = ref.watch(pPostsDataProvider);
     final size = MediaQuery.of(context).size;
-    return SizedBox(
-      width: size.width,
-      height: size.height,
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: Pallete.backgroundColor,
-          body: Padding(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Pallete.backgroundColor,
+        body: SingleChildScrollView(
+          child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,15 +50,15 @@ class HomeView extends ConsumerWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text("Top Placements", style: largeHeading2.copyWith(fontSize: 20),),
                 ),
-                // Container(
+                // SizedBox(
                 //   height: size.height*0.28,
                 //   child: Swiper(
-                //     autoplay: true,
+                //     // autoplay: true,
                 //     autoplayDelay: 4000,
                 //     itemBuilder: (BuildContext context,int index){
                 //       return Padding(
                 //         padding: const EdgeInsets.only(bottom: 15,top: 10),
-                //         child:contentCard(size, pPostsList[index].title,  pPostsList[index].text,  pPostsList[index].imageURL.toString(), context),
+                //         child:contentCard(size, pPostsList[index].title,  pPostsList[index].text,  pPostsList[index].imageURL, context),
                 //       );
                 //     },
                 //     viewportFraction: 0.85,
