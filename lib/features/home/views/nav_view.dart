@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mlrcc/features/home/views/home_view.dart';
+import 'package:mlrcc/features/noticeboard/views/notice_board.dart';
 import 'package:mlrcc/features/profile/views/user_profile.dart';
 import 'package:mlrcc/theme/pallete.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -30,7 +31,7 @@ class _NavViewState extends ConsumerState<NavView> {
   Widget build(BuildContext context) {
     _children = [
       HomeView(),
-      Container(color: Colors.blueAccent,),
+      NoticeBoardView(),
       Container(color: Colors.grey,),
       UserProfileView(),
     ];

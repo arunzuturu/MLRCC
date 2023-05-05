@@ -77,7 +77,7 @@ class HomeView extends ConsumerWidget {
                         SimpleCircularProgressBar(
                           // backColor: Color(0xffED7D7D),
                           progressColors: [Color(0xff98DE5B), Color(0xff08E1AE)],
-                          animationDuration: 4,
+                          animationDuration: 2,
                           valueNotifier: valueNotifier,
                           mergeMode: true,
                           onGetText: (double value) {
