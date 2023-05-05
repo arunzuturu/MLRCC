@@ -143,13 +143,32 @@ TextStyle largeHeading = const TextStyle(
       fontSize: 24,
       letterSpacing: 0.27,
       fontWeight: FontWeight.w600);
+
   TextStyle subHeading = const TextStyle(
     color: Color(0xffC4C9CC),
     fontSize: 18,
     fontWeight: FontWeight.w300,
   );
+TextStyle hashStyle = const TextStyle(
+  color: Pallete.whiteColor,
+  fontSize: 14,
+  fontWeight: FontWeight.w300,
+);
   TextStyle heading1 = const TextStyle(
     color: Pallete.accentColor,
     fontSize: 34,
     fontWeight: FontWeight.w600,
   );
+  TextStyle nbHeading = const TextStyle(
+    color: Color(0xff5c6b77),
+    fontSize: 24,
+    letterSpacing: 0.12,
+  );
+  TextStyle nbSubHeading = const TextStyle(
+    color: Color(0xffc4c9cc),
+    fontSize: 18.50,
+    letterSpacing: 0.09,
+  );
+  const hVoilet = Color(0xff6853FE);
+  const hOrange = Color(0xffFE8653);
+  const hBlue = Color(0xff538DFE);
