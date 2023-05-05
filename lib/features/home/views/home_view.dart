@@ -18,7 +18,7 @@ class HomeView extends ConsumerWidget {
     late ValueNotifier<double> valueNotifier;
     valueNotifier = ValueNotifier(75.0);
 
-  final pPostsList = ref.watch(pPostsDataProvider)!;
+  final pPostsList = ref.watch(pPostsDataProvider);
     final size = MediaQuery.of(context).size;
     return SizedBox(
       width: size.width,
@@ -50,22 +50,22 @@ class HomeView extends ConsumerWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text("Top Placements", style: largeHeading2.copyWith(fontSize: 20),),
                 ),
-                Container(
-                  height: size.height*0.28,
-                  child: Swiper(
-                    autoplay: true,
-                    autoplayDelay: 4000,
-                    itemBuilder: (BuildContext context,int index){
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 15,top: 10),
-                        child:contentCard(size, pPostsList[index].title,  pPostsList[index].text,  pPostsList[index].imageURL.toString(), context),
-                      );
-                    },
-                    viewportFraction: 0.85,
-                    scale: 0.9,
-                    itemCount: 5,
-                  ),
-                ),
+                // Container(
+                //   height: size.height*0.28,
+                //   child: Swiper(
+                //     autoplay: true,
+                //     autoplayDelay: 4000,
+                //     itemBuilder: (BuildContext context,int index){
+                //       return Padding(
+                //         padding: const EdgeInsets.only(bottom: 15,top: 10),
+                //         child:contentCard(size, pPostsList[index].title,  pPostsList[index].text,  pPostsList[index].imageURL.toString(), context),
+                //       );
+                //     },
+                //     viewportFraction: 0.85,
+                //     scale: 0.9,
+                //     itemCount: 5,
+                //   ),
+                // ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text("Performance Report", style: largeHeading2.copyWith(fontSize: 20),),

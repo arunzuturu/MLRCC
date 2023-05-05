@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:mlrcc/common/app_bar.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
+import 'package:mlrcc/core/utils.dart';
+import 'package:mlrcc/features/user/controller/user_controller.dart';
 import 'package:mlrcc/theme/pallete.dart';
 
 class InsertUserDetailsView extends ConsumerStatefulWidget {
-  static route() => MaterialPageRoute(
-        builder: (context) => const InsertUserDetailsView(),
+  final String uid;
+  final String name;
+  final String email;
+  final String imageUrl;
+  static route(uid, name, email, imageUrl) => MaterialPageRoute(
+        builder: (context) => InsertUserDetailsView(
+          uid: uid,
+          name: name,
+          email: email,
+          imageUrl: imageUrl,
+        ),
       );
-  const InsertUserDetailsView({super.key});
+  const InsertUserDetailsView(
+      {super.key,
+      required this.uid,
+      required this.name,
+      required this.email,
+      required this.imageUrl});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -30,8 +47,8 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
   @override
   Widget build(BuildContext context) {
     var branch = 'Enter your branch';
-    var semester = 'Enter your semester';
-    var year = 'Enter your year';
+    var semester = 1;
+    var year = 1;
     var section = 'Enter your section';
     final size = MediaQuery.of(context).size;
     return Container(
@@ -62,6 +79,9 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
                     height: size.height * 0.04,
                   ),
                   TextField(
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                    ],
                     controller: phoneNumber,
                     decoration: InputDecoration(
                       border: border,
@@ -74,6 +94,7 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
                     height: size.height * 0.02,
                   ),
                   TextField(
+                    inputFormatters: [],
                     controller: rollno,
                     decoration: InputDecoration(
                       border: border,
@@ -131,7 +152,7 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
                     ),
                     onChanged: (value) {
                       setState(() {
-                        year = value.toString();
+                        year = value;
                       });
                     },
                     value: year,
@@ -149,7 +170,7 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
                     ),
                     onChanged: (value) {
                       setState(() {
-                        semester = value.toString();
+                        semester = value;
                       });
                     },
                     value: semester,
@@ -162,7 +183,20 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
                     width: size.width * 0.9,
                     height: size.height * 0.08,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        ref.read(userControllerProvider.notifier).saveUserData(
+                            context: context,
+                            uid: widget.uid,
+                            name: widget.name,
+                            email: widget.email,
+                            rno: rollno.text.toUpperCase(),
+                            branch: branch,
+                            semester: semester,
+                            year: year,
+                            phone: phoneNumber.text,
+                            section: section,
+                            imageUrl: widget.imageUrl);
+                      },
                       style: ElevatedButton.styleFrom(
                         elevation: 30,
                         primary: Pallete.accentColor,

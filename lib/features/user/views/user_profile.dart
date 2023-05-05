@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mlrcc/common/app_bar.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
+import 'package:mlrcc/features/auth/controller/auth_controller.dart';
 import 'package:mlrcc/theme/pallete.dart';
 
 import '../../../common/common.dart';
@@ -16,24 +17,25 @@ class UserProfileView extends ConsumerStatefulWidget {
 }
 
 class _UserProfileViewState extends ConsumerState<UserProfileView> {
-  final appBar = CustomAppBar(
+  
+  @override
+  Widget build(BuildContext context) {
+    final appBar = CustomAppBar(
     title: 'Profile',
     actions: [
       IconButton(
         icon: const Icon(LineIcons.userEdit),
-        onPressed: () {},
+        onPressed: () {
+          ref.read(authControllerProvider.notifier).signOut();
+        },
       )
     ],
   );
-  @override
-  Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     print(DateTime.now());
     // final user = ref.watch(userDataProvider);
     var name = "Tanishq Agarwal";
     var email = "tanishqagarwal@gmail.com";
-    var timetableurl =
-        'https://firebasestorage.googleapis.com/v0/b/mlrcc-3206a.appspot.com/o/timetable.png?alt=media&token=84e806fb-a11e-44c0-8239-f778cc401bc9';
     return Container(
       color: Pallete.backgroundColor,
       child: SafeArea(

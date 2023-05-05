@@ -77,11 +77,11 @@ class UIConstants {
       child: Text('Enter your semester'),
     ),
     const DropdownMenuItem(
-      value: '1',
+      value: 1,
       child: Text('1'),
     ),
     const DropdownMenuItem(
-      value: '2',
+      value: 2,
       child: Text('2'),
     ),
   ];
@@ -89,23 +89,19 @@ class UIConstants {
   // create a list of years
   static List<DropdownMenuItem> yearDetails = [
     const DropdownMenuItem(
-      value: 'Enter your year',
-      child: Text('Enter your year'),
-    ),
-    const DropdownMenuItem(
-      value: '1',
+      value: 1,
       child: Text('1'),
     ),
     const DropdownMenuItem(
-      value: '2',
+      value: 2,
       child: Text('2'),
     ),
     const DropdownMenuItem(
-      value: '3',
+      value: 3,
       child: Text('3'),
     ),
     const DropdownMenuItem(
-      value: '4',
+      value: 4,
       child: Text('4'),
     ),
   ];

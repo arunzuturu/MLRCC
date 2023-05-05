@@ -1,31 +1,33 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mlrcc/apis/user_api.dart';
 import 'package:mlrcc/config/config.dart';
 import 'package:mlrcc/core/core.dart';
+import 'package:mlrcc/modals/nbposts_modal.dart';
 import 'package:mlrcc/modals/pposts_modal.dart';
 
-final pPostsAPIProvider = Provider((ref) => NBPostsAPI());
+final nBPostsAPIProvider = Provider((ref) => NBPostsAPI());
+final dio = Dio();
 
 abstract class INBPostsAPI {
-  FutureEither<List<PPostsModal>> getNBPosts();
+  FutureEither<List<NBPostsModal>> getNBPosts();
 }
 
 class NBPostsAPI implements INBPostsAPI {
   @override
-  FutureEither<List<PPostsModal>> getNBPosts() async {
+  FutureEither<List<NBPostsModal>> getNBPosts() async {
     try {
-      final roadmapData =
-          await http.get(Uri.parse('${apiUrl}pposts}'));
-      final roadmapDataJson = jsonDecode(roadmapData.body) as List;
-      final roadmapDataList = roadmapDataJson
-          .map((e) => PPostsModal.fromJson(e as Map<String, dynamic>))
-          .toList();
-      print(roadmapDataList);
-      return right(roadmapDataList);
-    } catch (e) {
-      throw Failure(e.toString(), StackTrace.empty);
+      final noticeBoardData = await dio.get('${apiUrl}getNBposts');
+      List<NBPostsModal> nbPosts = [];
+      noticeBoardData.data['data'].forEach((element) {
+        nbPosts.add(NBPostsModal.fromJson(element));
+      });
+      return right(nbPosts);
+    } catch (e, st) {
+      return left(Failure(e.toString(), st));
     }
   }
 }

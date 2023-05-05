@@ -8,6 +8,7 @@ class UserModal {
   int? year;
   String? phone;
   String? section;
+  // String? imageUrl;
 
   UserModal(
       {this.name,
@@ -18,6 +19,7 @@ class UserModal {
       this.semester,
       this.year,
       this.phone,
+      // this.imageUrl,
       this.section});
 
   UserModal.fromJson(Map<String, dynamic> json) {
@@ -30,6 +32,7 @@ class UserModal {
     year = json['year'];
     phone = json['phone'];
     section = json['section'];
+    // imageUrl = json['imageUrl'];
   }
 
   Map<String, dynamic> toJson() {
@@ -43,6 +46,7 @@ class UserModal {
     data['year'] = this.year;
     data['phone'] = this.phone;
     data['section'] = this.section;
+    // data['imageUrl'] = this.imageUrl;
     return data;
   }
 }

@@ -68,9 +68,9 @@ Widget NoticeBoardCard(size,hash, title, desc)
   var selectColor = Pallete.accentColor;
   switch(hash)
   {
-    case "General": {selectColor = hOrange;} break;
-    case "Event": {selectColor = hBlue;} break;
-    case "Placement": {selectColor = hVoilet;} break;
+    case "#General": {selectColor = hOrange;} break;
+    case "#Event": {selectColor = hBlue;} break;
+    case "#Placement": {selectColor = hVoilet;} break;
   }
   return Padding(
     padding: const EdgeInsets.all(8.0),
@@ -83,7 +83,7 @@ Widget NoticeBoardCard(size,hash, title, desc)
             child: Container(
               child: Center(
                 child: Text(
-                  "#${hash.toString()}",
+                  "${hash.toString()}",
                   style: hashStyle.copyWith(fontWeight: FontWeight.w500),
                 ),
               ),
