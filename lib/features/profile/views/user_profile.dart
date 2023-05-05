@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icons.dart';
@@ -100,11 +101,10 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
                     color: Pallete.greyColor,
                   ),
                   width: size.width * 0.9,
-                  child: Image.network(
-                    timetableurl,
-                    alignment: const Alignment(0.1, 0),
-                    fit: BoxFit.fill,
-                    scale: 2.5,
+                  child: CachedNetworkImage(
+                    imageUrl: "",
+                    placeholder: (context, url) => CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
                   ),
                 ),
               ),
