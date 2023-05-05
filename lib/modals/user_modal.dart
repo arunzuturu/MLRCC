@@ -8,9 +8,10 @@ class UserModal {
   final String phone;
   final String branch;
   final String year;
-  final String rollno;
+  final String rno;
   final String semester;
   final String section;
+  final String imageUrl;
   UserModal({
     required this.uid,
     required this.name,
@@ -18,9 +19,10 @@ class UserModal {
     required this.phone,
     required this.branch,
     required this.year,
-    required this.rollno,
+    required this.rno,
     required this.semester,
     required this.section,
+    required this.imageUrl,
   });
 
   UserModal copyWith({
@@ -30,9 +32,10 @@ class UserModal {
     String? phone,
     String? branch,
     String? year,
-    String? rollno,
+    String? rno,
     String? semester,
     String? section,
+    String? imageUrl,
   }) {
     return UserModal(
       uid: uid ?? this.uid,
@@ -41,9 +44,10 @@ class UserModal {
       phone: phone ?? this.phone,
       branch: branch ?? this.branch,
       year: year ?? this.year,
-      rollno: rollno ?? this.rollno,
+      rno: rno ?? this.rno,
       semester: semester ?? this.semester,
       section: section ?? this.section,
+      imageUrl: imageUrl ?? this.imageUrl,
     );
   }
 
@@ -55,9 +59,10 @@ class UserModal {
       'phone': phone,
       'branch': branch,
       'year': year,
-      'rollno': rollno,
+      'rno': rno,
       'semester': semester,
       'section': section,
+      'imageUrl': imageUrl,
     };
   }
 
@@ -69,9 +74,10 @@ class UserModal {
       phone: map['phone'] as String,
       branch: map['branch'] as String,
       year: map['year'] as String,
-      rollno: map['rollno'] as String,
+      rno: map['rno'] as String,
       semester: map['semester'] as String,
       section: map['section'] as String,
+      imageUrl: map['imageUrl'] as String,
     );
   }
 
@@ -81,7 +87,7 @@ class UserModal {
 
   @override
   String toString() {
-    return 'UserModal(uid: $uid, name: $name, email: $email, phone: $phone, branch: $branch, year: $year, rollno: $rollno, semester: $semester, section: $section)';
+    return 'UserModal(uid: $uid, name: $name, email: $email, phone: $phone, branch: $branch, year: $year, rno: $rno, semester: $semester, section: $section, imageUrl: $imageUrl)';
   }
 
   @override
@@ -95,9 +101,10 @@ class UserModal {
       other.phone == phone &&
       other.branch == branch &&
       other.year == year &&
-      other.rollno == rollno &&
+      other.rno == rno &&
       other.semester == semester &&
-      other.section == section;
+      other.section == section &&
+      other.imageUrl == imageUrl;
   }
 
   @override
@@ -108,8 +115,9 @@ class UserModal {
       phone.hashCode ^
       branch.hashCode ^
       year.hashCode ^
-      rollno.hashCode ^
+      rno.hashCode ^
       semester.hashCode ^
-      section.hashCode;
+      section.hashCode ^
+      imageUrl.hashCode;
   }
 }

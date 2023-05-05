@@ -46,7 +46,8 @@ class AuthAPI implements IAuthAPI {
   }
   
   @override
-  FutureVoid signOut() {
-    return _auth.signOut();
+  FutureVoid signOut() async{
+    await GoogleSignIn().signOut();
+    return await _auth.signOut();
   }
 }

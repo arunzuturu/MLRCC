@@ -27,6 +27,7 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    print(DateTime.now());
     // final user = ref.watch(userDataProvider);
     var name = "Tanishq Agarwal";
     var email = "tanishqagarwal@gmail.com";

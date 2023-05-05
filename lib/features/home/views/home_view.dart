@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/features/auth/controller/auth_controller.dart';
+import 'package:mlrcc/features/pposts/controllers/pposts_controller.dart';
 import 'package:mlrcc/theme/pallete.dart';
 
 import '../../../common/common.dart';
@@ -12,6 +13,8 @@ class HomeView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final pPosts = ref.watch(pPostsDataProvider);
+    print(pPosts);
     final size = MediaQuery.of(context).size;
     return SizedBox(
       width: size.width,

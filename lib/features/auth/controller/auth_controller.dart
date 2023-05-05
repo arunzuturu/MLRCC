@@ -39,6 +39,7 @@ class AuthController extends StateNotifier<bool> {
     final user = await _authAPI.signInWithGoogle(context);
     state = false;
     user.fold((l) => showSnackBar(context, l.message), (userCredential) {
+      print(userCredential.user!.photoURL);
       if (userCredential.user!.email!.contains('mlrinstitutions.ac.in')) {
         if (userCredential.additionalUserInfo!.isNewUser) {
           Navigator.push(context, InsertUserDetailsView.route());
