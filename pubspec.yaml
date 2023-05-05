@@ -38,12 +38,14 @@ dependencies:
   firebase_core: ^2.10.0
   flutter:
     sdk: flutter
+  flutter_carousel_widget: ^2.0.2
   flutter_riverpod: ^2.3.6
   flutter_svg: ^2.0.5
   fpdart: ^0.5.0
   google_nav_bar: ^5.0.6
   google_sign_in: ^6.1.0
   http: ^0.13.6
+  image_picker: ^0.8.7+4
   line_icons: ^2.0.1
   simple_circular_progress_bar: ^1.0.2
 

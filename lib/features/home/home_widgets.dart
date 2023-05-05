@@ -6,6 +6,7 @@ import 'dart:math' as math;
 import 'package:cached_network_image/cached_network_image.dart';
 
 Widget contentCard(size,title,text,link,context) {
+  print(1);
 
   return Padding(
     padding: const EdgeInsets.only(left: 4,right: 4, bottom: 10,top: 15),
@@ -24,7 +25,7 @@ Widget contentCard(size,title,text,link,context) {
         borderRadius: BorderRadius.circular(12),
        image: DecorationImage(
          fit: BoxFit.fill,
-           image: CachedNetworkImageProvider("http://via.placeholder.com/200x150"),
+           image: CachedNetworkImageProvider("https://via.placeholder.com/350x150"),
        ),
       ),
       child: Row(
@@ -125,6 +126,44 @@ Widget NoticeBoardCard(size,hash, title, desc)
   );
 }
 
+Widget postCard(size, mainImage, profileImage, name)
+{
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Container(
+      height: size.height * 0.3,
+      width: size.width * 0.4,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: NetworkImage(
+                "https://via.placeholder.com/375x667.png?text=Mobile+Screen+Ratio+Placeholder"), // add mainImage
+          )),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            color: Color(0x66393939),height: 40,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 12,
+                    backgroundImage: NetworkImage('https://via.placeholder.com/150'), // add profileImage
+                  ),
+                  SizedBox(width: size.width*0.02,),
+                  Text("Arun", style: nbHeading.copyWith(color:Colors.white, fontWeight: FontWeight.bold, fontSize: 14),), //add Name
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
 
 
 

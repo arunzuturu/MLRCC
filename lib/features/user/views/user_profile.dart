@@ -91,24 +91,24 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
               SizedBox(
                 height: size.height * 0.02,
               ),
-              Card(
-                elevation: 20,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(1000),
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Pallete.greyColor,
-                  ),
-                  width: size.width * 0.9,
-                  child: CachedNetworkImage(
-                    imageUrl: "",
-                    placeholder: (context, url) => CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
-                  ),
-                ),
-              ),
+              // Card(
+              //   elevation: 20,
+              //   shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(1000),
+              //   ),
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //       borderRadius: BorderRadius.circular(100),
+              //       color: Pallete.greyColor,
+              //     ),
+              //     width: size.width * 0.9,
+              //     child: CachedNetworkImage(
+              //       imageUrl: "",
+              //       placeholder: (context, url) => CircularProgressIndicator(),
+              //       errorWidget: (context, url, error) => Icon(Icons.error),
+              //     ),
+              //   ),
+              // ),
               SizedBox(
                 height: size.height * 0.02,
               ),
