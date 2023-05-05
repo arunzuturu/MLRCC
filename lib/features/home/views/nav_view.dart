@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mlrcc/features/home/views/home_view.dart';
+import 'package:mlrcc/features/noticeboard/views/notice_board.dart';
+import 'package:mlrcc/features/pposts/controllers/pposts_controller.dart';
 import 'package:mlrcc/features/user/views/user_profile.dart';
+
 import 'package:mlrcc/theme/pallete.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
@@ -25,13 +28,28 @@ class _NavViewState extends ConsumerState<NavView> {
       _page = index;
     });
   }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      getData() {
+        ref.watch(pPostsControllerProvider.notifier).getPPosts(context);
+      }
+
+      getData();
+    });
+  }
+
   List<Widget> _children = [];
   @override
   Widget build(BuildContext context) {
     _children = [
       HomeView(),
-      Container(color: Colors.blueAccent,),
-      Container(color: Colors.grey,),
+      NoticeBoardView(),
+      Container(
+        color: Colors.grey,
+      ),
       UserProfileView(),
     ];
     return Scaffold(
@@ -54,7 +72,8 @@ class _NavViewState extends ConsumerState<NavView> {
               onTabChange: (int index) {
                 setState(() {
                   _currentIndex = index;
-                });},
+                });
+              },
               gap: 8,
               activeColor: Colors.white,
               iconSize: 24,
@@ -81,7 +100,7 @@ class _NavViewState extends ConsumerState<NavView> {
                 GButton(
                   icon: LineIcons.user,
                   text: 'Profile',
-                  textStyle:TextStyle(color: Pallete.whiteColor),
+                  textStyle: TextStyle(color: Pallete.whiteColor),
                 ),
               ],
             ),

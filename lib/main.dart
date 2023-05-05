@@ -41,13 +41,6 @@ class _MyAppState extends ConsumerState<MyApp> {
         home: ref.watch(curentUserAccountProvider).when(
             data: (user) {
               if (user != null) {
-                getData() {
-                  // ref
-                  //     .watch(pPostsControllerProvider.notifier)
-                  //     .getPPosts(context);
-                }
-
-                getData();
                 return const NavView();
               }
               return const LoginView();
