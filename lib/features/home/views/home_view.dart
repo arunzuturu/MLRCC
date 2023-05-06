@@ -1,20 +1,26 @@
+import 'dart:ffi';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
-import 'package:mlrcc/features/auth/controller/auth_controller.dart';
-import 'package:mlrcc/features/home/home_widgets.dart';
+import 'package:mlrcc/features/home/views/college_view.dart';
+
 import 'package:mlrcc/features/pposts/controllers/pposts_controller.dart';
 import 'package:mlrcc/features/user/controller/user_controller.dart';
 import 'package:mlrcc/theme/pallete.dart';
 import 'package:card_swiper/card_swiper.dart';
 import '../../../common/common.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
+<<<<<<< HEAD
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 
 class HomeView extends ConsumerStatefulWidget {
+=======
+
+class HomeView extends ConsumerWidget {
+>>>>>>> a53e066b6e7315e9cc87be375daf6776a592252c
   const HomeView({super.key});
 
   @override
@@ -25,8 +31,32 @@ class _HomeViewState extends ConsumerState<HomeView> {
   @override
   Widget build(BuildContext context) {
     late ValueNotifier<double> valueNotifier;
+<<<<<<< HEAD
     valueNotifier = ValueNotifier(75.0);
     final pPostsList = ref.watch(pPostsDataProvider);
+=======
+    late double value = 45;
+    valueNotifier = ValueNotifier(value);
+    late var selectedColor;
+    late var textTogo;
+    if(value >=75)
+    {
+      selectedColor = Colors.green;
+      textTogo = "Pheew! You are safe";
+    }
+    else if(value < 75 && value >55)
+    {
+      selectedColor = Colors.yellow;
+      textTogo = "Try Hard! Few more classes";
+    }
+    else
+    {
+      selectedColor = Colors.red;
+      textTogo = "Class Jana, Detain Hoga";
+    }
+
+  final pPostsList = ref.watch(pPostsDataProvider);
+>>>>>>> a53e066b6e7315e9cc87be375daf6776a592252c
     final size = MediaQuery.of(context).size;
     return (pPostsList == null)?const Loader():SafeArea(
       child: Scaffold(
@@ -42,11 +72,20 @@ class _HomeViewState extends ConsumerState<HomeView> {
                   actions: [
                     IconButton(
                         onPressed: () {
+<<<<<<< HEAD
                           ref.read(userControllerProvider.notifier).getUserData(
                               context: context,
                               uid: 'XQhLZh2niIffSxz7GmyTR8Jlxki1');
                         },
                         icon: LineIcon.bell(
+=======
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => CollegeView()),
+                          );
+                        },
+                        icon: LineIcon.hotel(
+>>>>>>> a53e066b6e7315e9cc87be375daf6776a592252c
                           size: 30,
                         )),
                     IconButton(
@@ -108,6 +147,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                           valueNotifier: valueNotifier,
                           mergeMode: true,
                           onGetText: (double value) {
+
                             return Text(
                               '${value.toInt()}%',
                               style: const TextStyle(
@@ -156,6 +196,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                 )
                               ],
                             ),
+<<<<<<< HEAD
                             SizedBox(
                               height: size.height * 0.02,
                             ),
@@ -165,6 +206,10 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                   fontWeight: FontWeight.w600,
                                   color: Colors.green),
                             )
+=======
+                            SizedBox(height: size.height*0.02,),
+                            Text("${textTogo}", style: TextStyle(fontWeight: FontWeight.w600, color: selectedColor),)
+>>>>>>> a53e066b6e7315e9cc87be375daf6776a592252c
                           ],
                         )
                       ],

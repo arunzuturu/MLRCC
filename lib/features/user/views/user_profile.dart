@@ -5,6 +5,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:mlrcc/common/app_bar.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/features/auth/controller/auth_controller.dart';
+import 'package:mlrcc/features/questions/views/question_view.dart';
 import 'package:mlrcc/features/user/controller/user_controller.dart';
 import 'package:mlrcc/theme/pallete.dart';
 
@@ -138,6 +139,8 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
                   ),
                 ),
               ),
+              SizedBox(height: size.height*0.03,),
+              QuestionCard(isButton: true,)
             ],
           ),
         )),
