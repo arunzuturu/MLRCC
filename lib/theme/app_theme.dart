@@ -3,9 +3,11 @@ import 'package:mlrcc/theme/pallete.dart';
 
 class AppTheme {
   static ThemeData theme = ThemeData(
-    textTheme: TextTheme(
-      
-    ),
+    textTheme: TextTheme(),
+    splashFactory: NoSplash.splashFactory,
+    highlightColor: Colors.transparent,
+    splashColor: Colors.transparent,
+    hoverColor: Colors.transparent,
     fontFamily: 'Neue',
     scaffoldBackgroundColor: Pallete.backgroundColor,
     appBarTheme: const AppBarTheme(

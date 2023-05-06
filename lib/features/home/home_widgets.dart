@@ -147,71 +147,7 @@ Widget NoticeBoardCard(size, hash, title, desc) {
   );
 }
 
-class PostCard extends StatelessWidget {
-  final String mainImage;
-  final String name;
-  final String profileImage;
-  const PostCard(
-      {super.key,
-      required this.mainImage,
-      required this.name,
-      required this.profileImage});
 
-  @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: InkWell(
-        onTap: () {
-          Navigator.push(
-              context, ExploreFullView.route(mainImage, name, profileImage));
-        },
-        child: Container(
-          height: size.height * 0.3,
-          width: size.width * 0.4,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-            fit: BoxFit.fill,
-            image: CachedNetworkImageProvider(mainImage), // add mainImage
-          )),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                color: Color(0x66393939),
-                height: 40,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      CircleAvatar(
-                        radius: 12,
-                        backgroundImage:
-                            NetworkImage(profileImage), // add profileImage
-                      ),
-                      SizedBox(
-                        width: size.width * 0.02,
-                      ),
-                      Text(
-                        name,
-                        style: nbHeading.copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14),
-                      ), //add Name
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 Widget CommentCard(size, imageUrl, name, text) {
   return Padding(
