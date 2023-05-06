@@ -28,27 +28,45 @@ class _HomeViewState extends ConsumerState<HomeView> {
   Widget build(BuildContext context) {
     final List<FeaturesModal> features = [
       FeaturesModal(
-          title: "Attendance", icon: LineIcon.calendarCheck(
+          title: "Attendance",
+          icon: LineIcon.calendarCheck(
             size: 42,
-          ), onTap: () {
-            
+          ),
+          onTap: () {
+            print(2);
           }),
-      FeaturesModal(title: "Assignments", icon: LineIcon.book(
-        size: 42,
-      ), onTap: () {}),
-      FeaturesModal(title: "Notes", icon: LineIcon.bookmark(
-        size: 42,
-      ), onTap: () {}),
-      FeaturesModal(title: "Events", icon: LineIcon.calendar(
-        size: 42,
-      ), onTap: () {}),
       FeaturesModal(
-          title: "Placements", icon: LineIcon.briefcase(
+          title: "Assignments",
+          icon: LineIcon.book(
             size: 42,
-          ), onTap: () {}),
-      FeaturesModal(title: "Syllabus", icon: LineIcon.book(
-        size: 42,
-      ), onTap: () {}),
+          ),
+          onTap: () {
+            print(3);
+          }),
+      FeaturesModal(
+          title: "Notes",
+          icon: LineIcon.bookmark(
+            size: 42,
+          ),
+          onTap: () {}),
+      FeaturesModal(
+          title: "Events",
+          icon: LineIcon.calendar(
+            size: 42,
+          ),
+          onTap: () {}),
+      FeaturesModal(
+          title: "Placements",
+          icon: LineIcon.briefcase(
+            size: 42,
+          ),
+          onTap: () {}),
+      FeaturesModal(
+          title: "Syllabus",
+          icon: LineIcon.book(
+            size: 42,
+          ),
+          onTap: () {}),
     ];
     late ValueNotifier<double> valueNotifier;
     late double value = 45;
@@ -140,15 +158,21 @@ class _HomeViewState extends ConsumerState<HomeView> {
                         controller: ScrollController(keepScrollOffset: false),
                         shrinkWrap: true,
                         itemCount: 6,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            crossAxisSpacing: 10,
-                            mainAxisSpacing: 10,
-                            childAspectRatio: 1),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                                crossAxisSpacing: 10,
+                                mainAxisSpacing: 10,
+                                childAspectRatio: 1),
                         itemBuilder: (context, index) {
-                          return FeaturesWidget(
-                            icon: features[index].icon,
-                            text: features[index].title,
+                          return InkWell(
+                            onTap: () {
+                              
+                            },
+                            child: FeaturesWidget(
+                              icon: features[index].icon,
+                              text: features[index].title,
+                            ),
                           );
                         },
                       ),

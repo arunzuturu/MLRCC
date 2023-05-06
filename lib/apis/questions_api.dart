@@ -30,5 +30,24 @@ class QuestionsAPI implements IPPostsAPI {
       throw Failure(e.toString(), StackTrace.empty);
     }
   }
+
+  @override
+  FutureEither<List<QuestionsModal>> addQuestion(
+      String questions) async {
+    try {
+      final roadmapData = await dio.post('${apiUrl}createQuestion',
+          data: {
+            'question': questions,
+            'comments': [] 
+          });
+      List<QuestionsModal> pPosts = [];
+      roadmapData.data['data'].forEach((element) {
+        pPosts.add(QuestionsModal.fromJson(element));
+      });
+      return right(pPosts);
+    } catch (e) {
+      throw Failure(e.toString(), StackTrace.empty);
+    }
+  }
   
 }

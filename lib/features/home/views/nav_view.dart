@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mlrcc/features/auth/views/insert_user_details.dart';
+import 'package:mlrcc/features/explore/controller/explore_controller.dart';
 import 'package:mlrcc/features/explore/views/explore.dart';
 import 'package:mlrcc/features/home/views/home_view.dart';
 import 'package:mlrcc/features/noticeboard/controller/nb_posts_controller.dart';
@@ -70,6 +71,7 @@ class _NavViewState extends ConsumerState<NavView> {
         ref.watch(pPostsControllerProvider.notifier).getPPosts(context);
         ref.watch(nBPostsControllerProvider.notifier).getNBPosts(context);
         ref.watch(questionsControllerProvider.notifier).getQuestions(context);
+        ref.watch(exploreControllerProvider.notifier).getExplorePosts(context);
         ref.watch(userControllerProvider.notifier).getTimeTableUrl(
             context: context,
             branch: user!.branch!,
@@ -136,6 +138,7 @@ class _NavViewState extends ConsumerState<NavView> {
                   textStyle: TextStyle(color: Pallete.whiteColor),
                 ),
                 GButton(
+                  
                   icon: LineIcons.user,
                   text: 'Profile',
                   textStyle: TextStyle(color: Pallete.whiteColor),

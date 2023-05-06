@@ -34,4 +34,14 @@ class QuestionsController extends StateNotifier<bool> {
     });
     state = false;
   }
+
+  void addQuestion(BuildContext context, String questions) async {
+    state = true;
+    final pPosts = await _questionsAPI.addQuestion(questions);
+    pPosts.fold((l) => showSnackBar(context, l.message), (questions) {
+      print(questions);
+      _ref.read(questionsDataProvider.notifier).update((state) => questions);
+    });
+    state = false;
+  }
 }

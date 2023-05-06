@@ -5,7 +5,9 @@ import 'package:line_icons/line_icons.dart';
 import 'package:mlrcc/common/app_bar.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/features/auth/controller/auth_controller.dart';
+import 'package:mlrcc/features/home/views/home_view.dart';
 import 'package:mlrcc/features/questions/controller/questions_controller.dart';
+import 'package:mlrcc/features/questions/views/add_question.dart';
 import 'package:mlrcc/features/questions/views/question_view.dart';
 import 'package:mlrcc/features/user/controller/user_controller.dart';
 import 'package:mlrcc/theme/pallete.dart';
@@ -142,6 +144,33 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
                 ),
                 SizedBox(
                   height: size.height * 0.03,
+                ),
+                //add question button
+                Container(
+                  margin: EdgeInsets.only(left: 20),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Pallete.greyColor,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(context, AddQuestionView.route());
+                      },
+                      child: Text(
+                        'Add Question',
+                        style: TextStyle(
+                          color: Pallete.whiteColor,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
                 Container(
                   width: size.width * 0.9,
