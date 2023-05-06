@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
+import 'package:url_launcher/url_launcher.dart';
 import 'package:mlrcc/common/app_bar.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/theme/pallete.dart';
-import 'package:url_launcher/url_launcher.dart';
+
 class CollegeView extends StatefulWidget {
   const CollegeView({Key? key}) : super(key: key);
 

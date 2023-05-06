@@ -6,8 +6,6 @@ import 'dart:math' as math;
 import 'package:cached_network_image/cached_network_image.dart';
 
 Widget contentCard(size,title,text,link,context) {
-  print(1);
-
   return Padding(
     padding: const EdgeInsets.only(left: 4,right: 4, bottom: 10,top: 15),
     child: Container(

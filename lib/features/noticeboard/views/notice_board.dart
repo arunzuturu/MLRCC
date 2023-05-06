@@ -5,6 +5,7 @@ import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/features/home/home_widgets.dart';
 import 'package:mlrcc/features/noticeboard/controller/nb_posts_controller.dart';
+import 'package:mlrcc/features/questions/controller/questions_controller.dart';
 import 'package:mlrcc/modals/nbposts_modal.dart';
 import 'package:mlrcc/theme/pallete.dart';
 
@@ -18,10 +19,12 @@ class NoticeBoardView extends ConsumerStatefulWidget {
 }
 
 class _NoticeBoardViewState extends ConsumerState<NoticeBoardView> {
-   @override
+  @override
   @override
   Widget build(BuildContext context) {
     final nbData = ref.watch(nBPostsDataProvider)!;
+    final questions = ref.watch(questionsDataProvider)!;
+    print(questions);
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Pallete.backgroundColor,
@@ -44,8 +47,8 @@ class _NoticeBoardViewState extends ConsumerState<NoticeBoardView> {
                   child: ListView.builder(
                       itemCount: nbData.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return NoticeBoardCard(size, nbData[index].hastag, nbData[index].title,
-                            nbData[index].description);
+                        return NoticeBoardCard(size, nbData[index].hastag,
+                            nbData[index].title, nbData[index].description);
                       }),
                 ),
               ],

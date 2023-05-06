@@ -6,6 +6,7 @@ import 'package:mlrcc/features/home/views/home_view.dart';
 import 'package:mlrcc/features/noticeboard/controller/nb_posts_controller.dart';
 import 'package:mlrcc/features/noticeboard/views/notice_board.dart';
 import 'package:mlrcc/features/pposts/controllers/pposts_controller.dart';
+import 'package:mlrcc/features/questions/controller/questions_controller.dart';
 import 'package:mlrcc/features/user/controller/user_controller.dart';
 import 'package:mlrcc/features/user/views/user_profile.dart';
 
@@ -65,9 +66,10 @@ class _NavViewState extends ConsumerState<NavView> {
         //       InsertUserDetailsView.route(
         //           widget.uid, widget.name, widget.email, widget.imageUrl));
         // }
-        
+
         ref.watch(pPostsControllerProvider.notifier).getPPosts(context);
         ref.watch(nBPostsControllerProvider.notifier).getNBPosts(context);
+        ref.watch(questionsControllerProvider.notifier).getQuestions(context);
         ref.watch(userControllerProvider.notifier).getTimeTableUrl(
             context: context,
             branch: user!.branch!,
