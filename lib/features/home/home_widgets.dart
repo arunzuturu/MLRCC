@@ -168,20 +168,21 @@ Widget CommentCard(size, imageUrl, name, text)
   return Padding(
     padding: const EdgeInsets.all(18.0),
     child: Container(
+      width: size.width * 0.8,
       child: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Row(
           children: [
             CircleAvatar(
               radius: 18,
-              backgroundImage: NetworkImage('https://via.placeholder.com/150'), // add profileImage
+              backgroundImage: NetworkImage(imageUrl), // add profileImage
             ),
             SizedBox(width: 30,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Kiran", style: nbSubHeading.copyWith(fontWeight: FontWeight.w600, color: Pallete.purpleAccent),),
-                Text("Idk Bro do it yourself"), //add text
+                Text(name, style: nbSubHeading.copyWith(fontWeight: FontWeight.w600, color: Pallete.purpleAccent, fontSize: 15),),
+                Text(text), //add text
               ],
             )
           ],

@@ -63,14 +63,15 @@ class Department {
 }
 
 List<Department> departments = [
+  Department('Information Technology', 'https://mlrit.ac.in/it/'),
+  Department('Freshman Engineering', 'https://mlrit.ac.in/freshman/'),
   Department('Computer Science', 'https://mlrit.ac.in/computer-science-engineering/'),
   Department('Electrical Engineering', 'https://www.example.com/eee'),
   Department('Mechanical Engineering', 'https://mlrit.ac.in/mechanical-engineering/'),
-  Department('Freshman Engineering', 'https://mlrit.ac.in/freshman/'),
   Department('Artificial Intelligence And Machine Learning', 'https://mlrit.ac.in/ai-ml/'),
   Department('CSE – Data Science', 'https://mlrit.ac.in/cse-ds/'),
   Department('CSE-Cyber Security', 'https://mlrit.ac.in/cse-cs/'),
-  Department('Information Technology', 'https://mlrit.ac.in/it/'),
+  
 
 ];
 
