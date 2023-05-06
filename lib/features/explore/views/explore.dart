@@ -32,6 +32,7 @@ class _ExploreViewState extends ConsumerState<ExploreView> {
     final size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Pallete.accentColor,
         onPressed: () {
@@ -63,6 +64,7 @@ class _ExploreViewState extends ConsumerState<ExploreView> {
           );
         },
         child: Icon(Icons.add),
+
       ),
       backgroundColor: Pallete.backgroundColor,
       body: SafeArea(

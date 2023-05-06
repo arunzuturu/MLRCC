@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mlrcc/constants/ui_constants.dart';
+import 'package:line_icons/line_icon.dart';
+import 'package:mlrcc/common/app_bar.dart';
 import 'package:mlrcc/theme/pallete.dart';
 
-class AddQuestionView extends ConsumerStatefulWidget {
-  static route() => MaterialPageRoute(
-        builder: (context) => const AddQuestionView(),
-      );
-  const AddQuestionView({super.key});
+class AddQuestionScreen extends StatefulWidget {
+
+  // final String postId;
+
+  const AddQuestionScreen({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _AddQuestionViewState();
+  _AddQuestionScreenState createState() => _AddQuestionScreenState();
 }
 
-class _AddQuestionViewState extends ConsumerState<AddQuestionView> {
-  final TextEditingController _textEditingController = TextEditingController();
+class _AddQuestionScreenState extends State<AddQuestionScreen> {
+  final TextEditingController _textEditingController =
+  TextEditingController();
 
   @override
   void dispose() {
@@ -26,36 +26,41 @@ class _AddQuestionViewState extends ConsumerState<AddQuestionView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Add Comment'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            TextField(
-              controller: _textEditingController,
-              decoration: InputDecoration(
-                hintText: 'Enter your comment...',
-                border: OutlineInputBorder(),
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(onPressed: (){
+                Navigator.pop(context);
+              }, icon: Icon(Icons.arrow_back)),
+              CustomAppBar(title: "Question"),
+              TextField(
+                controller: _textEditingController,
+                decoration: InputDecoration(
+                  hintText: 'Enter your question...',
+                  border: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Pallete.accentColor, width: 1.0),
+                  ),
+                ),
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
               ),
-              keyboardType: TextInputType.multiline,
-              maxLines: null,
-            ),
-            SizedBox(height: 16.0),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Pallete.greyColor,
+              SizedBox(height: 16.0),
+              ElevatedButton(
+                onPressed: () {
+                  String comment = _textEditingController.text;
+                  // Save the comment and go back to previous screen
+                  Navigator.pop(context, comment);
+                },
+                child: Text('Tap to Add'),
+                style: ElevatedButton.styleFrom(primary: Pallete.accentColor),
               ),
-              onPressed: () {
-                String comment = _textEditingController.text;
-                // Save the comment and go back to previous screen
-                Navigator.pop(context, comment);
-              },
-              child: Text('Save'),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

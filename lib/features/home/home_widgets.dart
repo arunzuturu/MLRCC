@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/features/explore/views/explore_fullview.dart';
 import 'package:mlrcc/theme/pallete.dart';
@@ -217,6 +218,7 @@ Widget CommentCard(size, imageUrl, name, text) {
     padding: const EdgeInsets.all(18.0),
     child: Container(
       width: size.width * 0.8,
+      height: size.height*0.1,
       child: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Row(
@@ -236,9 +238,9 @@ Widget CommentCard(size, imageUrl, name, text) {
                   style: nbSubHeading.copyWith(
                       fontWeight: FontWeight.w600,
                       color: Pallete.purpleAccent,
-                      fontSize: 15),
+                      fontSize: 12),
                 ),
-                Text(text), //add text
+                Text(text, style: TextStyle(fontSize: 14,),), //add text
               ],
             )
           ],

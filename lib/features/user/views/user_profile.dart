@@ -7,6 +7,7 @@ import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/features/auth/controller/auth_controller.dart';
 import 'package:mlrcc/features/home/views/home_view.dart';
 import 'package:mlrcc/features/questions/controller/questions_controller.dart';
+import 'package:mlrcc/features/questions/views/add_comment.dart';
 import 'package:mlrcc/features/questions/views/add_question.dart';
 import 'package:mlrcc/features/questions/views/question_view.dart';
 import 'package:mlrcc/features/user/controller/user_controller.dart';
@@ -53,6 +54,22 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
       color: Pallete.backgroundColor,
       child: SafeArea(
           child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor:Pallete.accentColor,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AddQuestionScreen()),
+            );
+
+          },
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10),
+            ),
+          ),
+          child: Icon(Icons.add_comment)
+        ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(
@@ -159,7 +176,7 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.push(context, AddQuestionView.route());
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>AddQuestionScreen()));
                       },
                       child: Text(
                         'Add Question',

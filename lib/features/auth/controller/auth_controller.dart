@@ -45,30 +45,30 @@ class AuthController extends StateNotifier<bool> {
     final user = await _authAPI.signInWithGoogle(context);
     state = false;
     user.fold((l) => showSnackBar(context, l.message), (userCredential) async {
-      // if (userCredential.user!.email!.contains('mlrinstitutions.ac.in')) {
-      if (userCredential.additionalUserInfo!.isNewUser) {
-        print('new user');
-        Navigator.popUntil(context, (route) => false);
-        Navigator.push(
-            context,
-            InsertUserDetailsView.route(
-              userCredential.user!.uid,
-              userCredential.user!.displayName!,
-              userCredential.user!.email!,
-              userCredential.user!.photoURL!,
-            ));
+      if (userCredential.user!.email!.contains('mlrinstitutions.ac.in')) {
+        if (userCredential.additionalUserInfo!.isNewUser) {
+          print('new user');
+          Navigator.popUntil(context, (route) => false);
+          Navigator.push(
+              context,
+              InsertUserDetailsView.route(
+                userCredential.user!.uid,
+                userCredential.user!.displayName!,
+                userCredential.user!.email!,
+                userCredential.user!.photoURL!,
+              ));
+        } else {
+          _userAPI.getUserData(userCredential.user!.uid);
+        }
       } else {
-        _userAPI.getUserData(userCredential.user!.uid);
+        _authAPI.signOut();
+        showSnackBar(context, 'Please use your @mlrinstitutions.ac.in email');
       }
-    }
-        // else {
-        //   _authAPI.signOut();
-        //   showSnackBar(context, 'Please use your @mlrinstitutions.ac.in email');
-        // }
-        );
+    });
   }
 
   void signOut() async {
+    _ref.read(userDataProvider.notifier).update((state) => null);
     await _authAPI.signOut();
   }
 }
