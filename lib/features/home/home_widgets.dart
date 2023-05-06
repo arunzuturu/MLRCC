@@ -165,6 +165,46 @@ Widget postCard(size, mainImage, profileImage, name)
   );
 }
 
+Widget CommentCard(size, imageUrl, name, text)
+{
+  return Padding(
+    padding: const EdgeInsets.all(18.0),
+    child: Container(
+      child: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: Row(
+          children: [
+            CircleAvatar(
+              radius: 18,
+              backgroundImage: NetworkImage('https://via.placeholder.com/150'), // add profileImage
+            ),
+            SizedBox(width: 30,),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Kiran", style: nbSubHeading.copyWith(fontWeight: FontWeight.w600, color: Pallete.purpleAccent),),
+                Text("Idk Bro do it yourself"), //add text
+              ],
+            )
+          ],
+        ),
+      ),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12.49),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xfff8f8f8),
+              blurRadius: 36.50,
+              offset: Offset(0, 11.53),
+            ),
+          ]
+      ),
+
+    ),
+  );
+}
+
 
 
 
