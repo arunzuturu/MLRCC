@@ -3,16 +3,16 @@ import 'package:line_icons/line_icon.dart';
 import 'package:mlrcc/common/app_bar.dart';
 import 'package:mlrcc/theme/pallete.dart';
 
-class AddCommentScreen extends StatefulWidget {
-  final String postId;
+class AddQuestionScreen extends StatefulWidget {
+  // final String postId;
 
-  const AddCommentScreen({Key? key, required this.postId}) : super(key: key);
+  const AddQuestionScreen({Key? key}) : super(key: key);
 
   @override
-  _AddCommentScreenState createState() => _AddCommentScreenState();
+  _AddQuestionScreenState createState() => _AddQuestionScreenState();
 }
 
-class _AddCommentScreenState extends State<AddCommentScreen> {
+class _AddQuestionScreenState extends State<AddQuestionScreen> {
   final TextEditingController _textEditingController =
   TextEditingController();
 
@@ -36,11 +36,11 @@ class _AddCommentScreenState extends State<AddCommentScreen> {
               IconButton(onPressed: (){
                 Navigator.pop(context);
               }, icon: Icon(Icons.arrow_back)),
-              CustomAppBar(title: "Comment"),
+              CustomAppBar(title: "Question"),
               TextField(
                 controller: _textEditingController,
                 decoration: InputDecoration(
-                  hintText: 'Enter your comment...',
+                  hintText: 'Enter your question...',
                   border: OutlineInputBorder(
                     borderSide: const BorderSide(color: Pallete.accentColor, width: 1.0),
                   ),
@@ -55,7 +55,7 @@ class _AddCommentScreenState extends State<AddCommentScreen> {
                   // Save the comment and go back to previous screen
                   Navigator.pop(context, comment);
                 },
-                child: Text('Tap to comment'),
+                child: Text('Tap to Add'),
                 style: ElevatedButton.styleFrom(primary: Pallete.accentColor),
               ),
             ],

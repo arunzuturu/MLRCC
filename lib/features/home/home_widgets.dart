@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/theme/pallete.dart';
 import 'dart:math' as math;
@@ -23,7 +24,7 @@ Widget contentCard(size,title,text,link,context) {
         borderRadius: BorderRadius.circular(12),
        image: DecorationImage(
          fit: BoxFit.fill,
-           image: CachedNetworkImageProvider("https://via.placeholder.com/350x150"),
+           image: CachedNetworkImageProvider(link.toString()),
        ),
       ),
       child: Row(
@@ -34,7 +35,7 @@ Widget contentCard(size,title,text,link,context) {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                SizedBox(height: size.height*0.11,),
+                SizedBox(height: size.height*0.12,),
                 SizedBox(
                   height: size.height*0.04,
                   width: size.width*0.5,
@@ -45,7 +46,7 @@ Widget contentCard(size,title,text,link,context) {
                   ),
                 ),
                 SizedBox(
-                  height: size.height*0.05,
+                  height: size.height*0.04,
                   width: size.width*0.5,
                   child: AutoSizeText(
                     text,
@@ -169,6 +170,7 @@ Widget CommentCard(size, imageUrl, name, text)
     padding: const EdgeInsets.all(18.0),
     child: Container(
       width: size.width * 0.8,
+      height: size.height*0.1,
       child: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Row(
@@ -181,8 +183,8 @@ Widget CommentCard(size, imageUrl, name, text)
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(name, style: nbSubHeading.copyWith(fontWeight: FontWeight.w600, color: Pallete.purpleAccent, fontSize: 15),),
-                Text(text), //add text
+                Text(name, style: nbSubHeading.copyWith(fontWeight: FontWeight.w600, color: Pallete.purpleAccent, fontSize: 12),),
+                Text(text, style: TextStyle(fontSize: 14,),), //add text
               ],
             )
           ],

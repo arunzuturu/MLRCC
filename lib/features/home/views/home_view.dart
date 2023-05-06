@@ -16,6 +16,8 @@ import 'package:card_swiper/card_swiper.dart';
 import '../../../common/common.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
+import '../../noticeboard/views/notice_board.dart';
+
 class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
 
@@ -36,9 +38,14 @@ class _HomeViewState extends ConsumerState<HomeView> {
       FeaturesModal(title: "Assignments", icon: LineIcon.book(
         size: 42,
       ), onTap: () {}),
-      FeaturesModal(title: "Notes", icon: LineIcon.bookmark(
+      FeaturesModal(title: "Notice Board", icon: LineIcon.bookmark(
         size: 42,
-      ), onTap: () {}),
+      ), onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => NoticeBoardView()),
+        );
+      }),
       FeaturesModal(title: "Events", icon: LineIcon.calendar(
         size: 42,
       ), onTap: () {}),
@@ -146,9 +153,14 @@ class _HomeViewState extends ConsumerState<HomeView> {
                             mainAxisSpacing: 10,
                             childAspectRatio: 1),
                         itemBuilder: (context, index) {
-                          return FeaturesWidget(
-                            icon: features[index].icon,
-                            text: features[index].title,
+                          return InkWell(
+                            onTap: (){
+
+                            },
+                            child: FeaturesWidget(
+                              icon: features[index].icon,
+                              text: features[index].title,
+                            ),
                           );
                         },
                       ),
@@ -251,6 +263,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                           ),
                         ),
                       ),
+
                     ],
                   ),
                 ),
@@ -265,8 +278,7 @@ class FeaturesWidget extends StatelessWidget {
   final String? text;
   const FeaturesWidget({
     super.key,
-    required this.icon,
-    required this.text,
+    required this.icon, this.text,
   });
 
   @override
