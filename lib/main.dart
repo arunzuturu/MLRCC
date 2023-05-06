@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:mlrcc/features/auth/controller/auth_controller.dart';
 import 'package:mlrcc/features/pposts/controllers/pposts_controller.dart';
+import 'package:mlrcc/features/user/controller/user_controller.dart';
 import 'package:mlrcc/firebase_options.dart';
 import 'package:mlrcc/modals/user_modal.dart';
 import 'package:mlrcc/theme/app_theme.dart';
@@ -41,7 +42,12 @@ class _MyAppState extends ConsumerState<MyApp> {
         home: ref.watch(curentUserAccountProvider).when(
             data: (user) {
               if (user != null) {
-                return const NavView();
+                return  NavView(
+                  uid: user.uid,
+                  email: user.email!,
+                  name: user.displayName!,
+                  imageUrl: user.photoURL!,
+                );
               }
               return const LoginView();
             },

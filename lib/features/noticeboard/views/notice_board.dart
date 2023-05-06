@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icon.dart';
+import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/features/home/home_widgets.dart';
 import 'package:mlrcc/features/noticeboard/controller/nb_posts_controller.dart';
+import 'package:mlrcc/modals/nbposts_modal.dart';
 import 'package:mlrcc/theme/pallete.dart';
 
 import '../../../common/app_bar.dart';
@@ -16,6 +18,7 @@ class NoticeBoardView extends ConsumerStatefulWidget {
 }
 
 class _NoticeBoardViewState extends ConsumerState<NoticeBoardView> {
+   @override
   @override
   Widget build(BuildContext context) {
     final nbData = ref.watch(nBPostsDataProvider)!;
@@ -25,7 +28,11 @@ class _NoticeBoardViewState extends ConsumerState<NoticeBoardView> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
+          child: LiquidPullToRefresh(
+            color: Pallete.accentColor,
+            onRefresh: () async {
+              ref.watch(nBPostsControllerProvider.notifier).getNBPosts(context);
+            },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -35,8 +42,6 @@ class _NoticeBoardViewState extends ConsumerState<NoticeBoardView> {
                 SizedBox(
                   height: size.height * 0.72,
                   child: ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: nbData.length,
                       itemBuilder: (BuildContext context, int index) {
                         return NoticeBoardCard(size, nbData[index].hastag, nbData[index].title,

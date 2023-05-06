@@ -24,12 +24,9 @@ class UserAPI extends IUserAPI {
   @override
   FutureEither<UserModal> getUserData(String uid) async {
     try {
-      final userData = await dio.get('${apiUrl}getUser', queryParameters: {
-        "uid": uid,
-      });
-      final userDataJson = jsonDecode(userData.data);
-      print(userDataJson);
-      final userDataList = UserModal.fromJson(userDataJson);
+      final userData = await dio.get('${apiUrl}getUser', data: {"uid": uid});
+      print(userData.data);
+      final userDataList = UserModal.fromJson(userData.data['data']);
       return right(userDataList);
     } catch (e) {
       return left(Failure(e.toString(), StackTrace.empty));
@@ -48,8 +45,8 @@ class UserAPI extends IUserAPI {
     required String phone,
     required String section,
   }) async {
-    print(1);
     try {
+      print('saveUserData');
       final userData = await dio.post('${apiUrl}signup', data: {
         "name": name,
         "email": email,
@@ -59,15 +56,28 @@ class UserAPI extends IUserAPI {
         "semester": semester,
         "year": year,
         "phone": phone,
-        "section": section
-        // "imageUrl": imageUrl
+        "section": section,
+        "imageUrl": imageUrl
       });
-      final userDataJson = jsonDecode(userData.data['data']);
-      
-      final userDataList = UserModal.fromJson(userDataJson);
+      print(userData.data);
+      final userDataList = UserModal.fromJson(userData.data['data']);
       return right(userDataList);
     } catch (e) {
       return left(Failure(e.toString(), StackTrace.empty));
+    }
+  }
+
+  FutureEither<String> getTimeTableUrl({
+    required String branch,
+    required int year,
+    required String section,
+  }) async {
+    try {
+      final timetableData = await dio.post('${apiUrl}getTimetable',
+          data: {"branch": branch, "year": year, "section": section});
+      return right(timetableData.data['data']['imageURL']);
+    } catch (e) {
+      throw Failure(e.toString(), StackTrace.empty);
     }
   }
 

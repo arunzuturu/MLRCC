@@ -25,12 +25,11 @@ class NBPostsController extends StateNotifier<bool> {
         _ref = ref,
         super(false);
 
-  void getNBPosts(BuildContext context) async {
+  Future<void> getNBPosts(BuildContext context) async {
     state = true;
     var res = await _nBPostsAPI.getNBPosts();
     state = false;
     res.fold((l) => showSnackBar(context, l.message), (r) {
-      print(r.length);
       _ref.read(nBPostsDataProvider.notifier).update((state) => r);
     });
   }

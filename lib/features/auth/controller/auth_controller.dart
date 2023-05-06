@@ -47,14 +47,19 @@ class AuthController extends StateNotifier<bool> {
     user.fold((l) => showSnackBar(context, l.message), (userCredential) async {
       // if (userCredential.user!.email!.contains('mlrinstitutions.ac.in')) {
       if (userCredential.additionalUserInfo!.isNewUser) {
-        Navigator.push(context, InsertUserDetailsView.route(
-          userCredential.user!.uid,
-          userCredential.user!.displayName!,
-          userCredential.user!.email!,
-          userCredential.user!.photoURL!,
-        ));
+        print('new user');
+        Navigator.popUntil(context, (route) => false);
+        Navigator.push(
+            context,
+            InsertUserDetailsView.route(
+              userCredential.user!.uid,
+              userCredential.user!.displayName!,
+              userCredential.user!.email!,
+              userCredential.user!.photoURL!,
+            ));
+      } else {
+        _userAPI.getUserData(userCredential.user!.uid);
       }
-      _userAPI.getUserData(userCredential.user!.uid);
     }
         // else {
         //   _authAPI.signOut();
