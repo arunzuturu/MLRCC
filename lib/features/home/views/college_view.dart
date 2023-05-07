@@ -25,7 +25,7 @@ class _CollegeViewState extends State<CollegeView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomAppBar(title: "About Campus"),
+                const CustomAppBar(title: "About Campus"),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -41,7 +41,7 @@ class _CollegeViewState extends State<CollegeView> {
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     height: size.height*0.55,
-                      child: DepartmentScreen()),
+                      child: const DepartmentScreen()),
                 ),
               ],
             ),
@@ -78,7 +78,7 @@ List<Department> departments = [
 class DepartmentCard extends StatelessWidget {
   final Department department;
 
-  DepartmentCard(this.department);
+  const DepartmentCard(this.department, {super.key});
 
   void _launchURL() async {
     await launchUrl(Uri.parse(department.url));
@@ -97,6 +97,8 @@ class DepartmentCard extends StatelessWidget {
 }
 
 class DepartmentScreen extends StatelessWidget {
+  const DepartmentScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(

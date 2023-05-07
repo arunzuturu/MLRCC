@@ -19,7 +19,7 @@ class OnBoardView extends StatelessWidget {
               height: 110.47,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.73),
-                color: Color(0xffe7eff7),
+                color: const Color(0xffe7eff7),
               ),
               padding: const EdgeInsets.only(
                 left: 12,
@@ -31,8 +31,8 @@ class OnBoardView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
+                children: const [
+                  SizedBox(
                     width: 49,
                     height: 49,
                     child: FlutterLogo(size: 49),
@@ -70,7 +70,7 @@ class OnBoardView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "19:02",
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -80,7 +80,7 @@ class OnBoardView extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(width: 130),
+                    const SizedBox(width: 130),
                     Container(
                       width: 18,
                       height: 13,
@@ -89,7 +89,7 @@ class OnBoardView extends StatelessWidget {
                         color: Colors.black,
                       ),
                     ),
-                    SizedBox(width: 130),
+                    const SizedBox(width: 130),
                     Container(
                       width: 26.60,
                       height: 12.50,
@@ -126,7 +126,7 @@ class OnBoardView extends StatelessWidget {
               height: 110.47,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.73),
-                color: Color(0xfff6f6f6),
+                color: const Color(0xfff6f6f6),
               ),
               padding: const EdgeInsets.only(
                 left: 9,
@@ -138,8 +138,8 @@ class OnBoardView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
+                children: const [
+                  SizedBox(
                     width: 65,
                     height: 65,
                     child: FlutterLogo(size: 65),
@@ -168,7 +168,7 @@ class OnBoardView extends StatelessWidget {
               height: 110.47,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.73),
-                color: Color(0xfff6f6f6),
+                color: const Color(0xfff6f6f6),
               ),
               padding: const EdgeInsets.only(
                 left: 17,
@@ -180,8 +180,8 @@ class OnBoardView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
+                children: const [
+                  SizedBox(
                     width: 48.26,
                     height: 48.26,
                     child: FlutterLogo(size: 48.26335906982422),
@@ -210,7 +210,7 @@ class OnBoardView extends StatelessWidget {
               height: 110.47,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.73),
-                color: Color(0xffe7eff7),
+                color: const Color(0xffe7eff7),
               ),
               padding: const EdgeInsets.only(
                 left: 12,
@@ -222,8 +222,8 @@ class OnBoardView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
+                children: const [
+                  SizedBox(
                     width: 58,
                     height: 58,
                     child: FlutterLogo(size: 58),
@@ -252,7 +252,7 @@ class OnBoardView extends StatelessWidget {
               height: 110.47,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.73),
-                color: Color(0xfff6f6f6),
+                color: const Color(0xfff6f6f6),
               ),
               padding: const EdgeInsets.only(
                 left: 13,
@@ -264,8 +264,8 @@ class OnBoardView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
+                children: const [
+                  SizedBox(
                     width: 57,
                     height: 57,
                     child: FlutterLogo(size: 57),
@@ -294,7 +294,7 @@ class OnBoardView extends StatelessWidget {
               height: 110.47,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.73),
-                color: Color(0xfff6f6f6),
+                color: const Color(0xfff6f6f6),
               ),
               padding: const EdgeInsets.only(
                 left: 9,
@@ -306,8 +306,8 @@ class OnBoardView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
+                children: const [
+                  SizedBox(
                     width: 46,
                     height: 46,
                     child: FlutterLogo(size: 46),
@@ -336,7 +336,7 @@ class OnBoardView extends StatelessWidget {
               height: 110.47,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.73),
-                color: Color(0xfff6f6f6),
+                color: const Color(0xfff6f6f6),
               ),
               padding: const EdgeInsets.only(
                 left: 18,
@@ -348,8 +348,8 @@ class OnBoardView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
+                children: const [
+                  SizedBox(
                     width: 48,
                     height: 48,
                     child: FlutterLogo(size: 48),
@@ -378,7 +378,7 @@ class OnBoardView extends StatelessWidget {
               height: 110.47,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.73),
-                color: Color(0xfff6f6f6),
+                color: const Color(0xfff6f6f6),
               ),
               padding: const EdgeInsets.only(
                 left: 12,
@@ -390,8 +390,8 @@ class OnBoardView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
+                children: const [
+                  SizedBox(
                     width: 59,
                     height: 59,
                     child: FlutterLogo(size: 59),
@@ -420,7 +420,7 @@ class OnBoardView extends StatelessWidget {
               height: 110.47,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.73),
-                color: Color(0xffe7eff7),
+                color: const Color(0xffe7eff7),
               ),
               padding: const EdgeInsets.only(
                 left: 11,
@@ -432,8 +432,8 @@ class OnBoardView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
+                children: const [
+                  SizedBox(
                     width: 44,
                     height: 50,
                     child: FlutterLogo(size: 44),
@@ -454,7 +454,7 @@ class OnBoardView extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
+          const Positioned(
             left: 41,
             top: 568,
             child: Text(
@@ -467,7 +467,7 @@ class OnBoardView extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
+          const Positioned(
             left: 61.81,
             top: 623.50,
             child: SizedBox(
@@ -492,14 +492,14 @@ class OnBoardView extends StatelessWidget {
               height: 66,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(7.12),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Color(0x992d3943),
                     blurRadius: 23,
                     offset: Offset(0, 6),
                   ),
                 ],
-                color: Color(0xff2d3945),
+                color: const Color(0xff2d3945),
               ),
               padding: const EdgeInsets.only(
                 top: 24,
@@ -509,7 +509,7 @@ class OnBoardView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
+                children: const [
                   Text(
                     "Get Started",
                     textAlign: TextAlign.center,

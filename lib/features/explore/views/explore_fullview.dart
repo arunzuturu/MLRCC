@@ -42,7 +42,7 @@ class _ExploreFullViewState extends ConsumerState<ExploreFullView> {
                   radius: 15,
                   backgroundImage: CachedNetworkImageProvider(photoUrl),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Positioned(
@@ -50,7 +50,7 @@ class _ExploreFullViewState extends ConsumerState<ExploreFullView> {
                   left: 20,
                   child: Text(
                     text,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

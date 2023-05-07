@@ -1,5 +1,6 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icon.dart';
 import 'package:mlrcc/common/app_bar.dart';
 import 'package:mlrcc/theme/pallete.dart';
 
@@ -29,35 +30,35 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               IconButton(onPressed: (){
                 Navigator.pop(context);
-              }, icon: Icon(Icons.arrow_back)),
-              CustomAppBar(title: "Question"),
+              }, icon: const Icon(Icons.arrow_back)),
+              const CustomAppBar(title: "Question"),
               TextField(
                 controller: _textEditingController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Enter your question...',
                   border: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Pallete.accentColor, width: 1.0),
+                    borderSide: BorderSide(color: Pallete.accentColor, width: 1.0),
                   ),
                 ),
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               ElevatedButton(
                 onPressed: () {
                   String comment = _textEditingController.text;
                   // Save the comment and go back to previous screen
                   Navigator.pop(context, comment);
                 },
-                child: Text('Tap to Add'),
-                style: ElevatedButton.styleFrom(primary: Pallete.accentColor),
+                style: ElevatedButton.styleFrom(backgroundColor: Pallete.accentColor),
+                child: const Text('Tap to Add'),
               ),
             ],
           ),

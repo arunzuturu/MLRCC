@@ -1,10 +1,9 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:fpdart/fpdart.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
-import 'package:mlrcc/features/explore/views/explore_fullview.dart';
 import 'package:mlrcc/theme/pallete.dart';
-import 'dart:math' as math;
 import 'package:cached_network_image/cached_network_image.dart';
 
 Widget contentCard(size, title, text, link, context) {
@@ -19,7 +18,7 @@ Widget contentCard(size, title, text, link, context) {
               color: Colors.black.withOpacity(0.12),
               spreadRadius: 0,
               blurRadius: 16.0,
-              offset: Offset(0, 11))
+              offset: const Offset(0, 11))
         ],
         borderRadius: BorderRadius.circular(12),
         image: DecorationImage(
@@ -87,23 +86,36 @@ Widget NoticeBoardCard(size, hash, title, desc) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Container(
+      width: size.width * 0.88,
+      height: size.height * 0.16,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x1e2d3943),
+            blurRadius: 31,
+            offset: Offset(0, 15),
+          ),
+        ],
+        color: Colors.white,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              child: Center(
-                child: Text(
-                  "${hash.toString()}",
-                  style: hashStyle.copyWith(fontWeight: FontWeight.w500),
-                ),
-              ),
               width: size.width * 0.24,
               height: size.height * 0.03,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(11),
                 color: selectColor,
+              ),
+              child: Center(
+                child: Text(
+                  hash.toString(),
+                  style: hashStyle.copyWith(fontWeight: FontWeight.w500),
+                ),
               ),
             ),
           ),
@@ -111,7 +123,7 @@ Widget NoticeBoardCard(size, hash, title, desc) {
             height: size.height * 0.01,
           ),
           Padding(
-            padding: EdgeInsets.only(left: 18),
+            padding: const EdgeInsets.only(left: 18),
             child: Text(
               title.toString(),
               style:
@@ -122,26 +134,13 @@ Widget NoticeBoardCard(size, hash, title, desc) {
             height: size.height * 0.01,
           ),
           Padding(
-            padding: EdgeInsets.only(left: 18),
+            padding: const EdgeInsets.only(left: 18),
             child: Text(
               desc.toString(),
               style: nbSubHeading.copyWith(fontSize: 14),
             ),
           ),
         ],
-      ),
-      width: size.width * 0.88,
-      height: size.height * 0.16,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0x1e2d3943),
-            blurRadius: 31,
-            offset: Offset(0, 15),
-          ),
-        ],
-        color: Colors.white,
       ),
     ),
   );
@@ -155,6 +154,16 @@ Widget CommentCard(size, imageUrl, name, text) {
     child: Container(
       width: size.width * 0.8,
       height: size.height*0.1,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12.49),
+          color: Colors.white,
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0xfff8f8f8),
+              blurRadius: 36.50,
+              offset: Offset(0, 11.53),
+            ),
+          ]),
       child: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Row(
@@ -163,7 +172,7 @@ Widget CommentCard(size, imageUrl, name, text) {
               radius: 18,
               backgroundImage: NetworkImage(imageUrl), // add profileImage
             ),
-            SizedBox(
+            const SizedBox(
               width: 30,
             ),
             Column(
@@ -176,22 +185,12 @@ Widget CommentCard(size, imageUrl, name, text) {
                       color: Pallete.purpleAccent,
                       fontSize: 12),
                 ),
-                Text(text, style: TextStyle(fontSize: 14,),), //add text
+                Text(text, style: const TextStyle(fontSize: 14,),), //add text
               ],
             )
           ],
         ),
       ),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12.49),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Color(0xfff8f8f8),
-              blurRadius: 36.50,
-              offset: Offset(0, 11.53),
-            ),
-          ]),
     ),
   );
 }

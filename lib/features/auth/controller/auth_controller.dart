@@ -44,10 +44,9 @@ class AuthController extends StateNotifier<bool> {
     state = true;
     final user = await _authAPI.signInWithGoogle(context);
     state = false;
-    user.fold((l) => showSnackBar(context, l.message), (userCredential) async {
+    user.fold((l) => null, (userCredential) async {
       if (userCredential.user!.email!.contains('mlrinstitutions.ac.in')) {
         if (userCredential.additionalUserInfo!.isNewUser) {
-          print('new user');
           Navigator.popUntil(context, (route) => false);
           Navigator.push(
               context,

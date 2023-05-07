@@ -3,7 +3,7 @@ import 'package:mlrcc/theme/pallete.dart';
 
 class AppTheme {
   static ThemeData theme = ThemeData(
-    textTheme: TextTheme(),
+    textTheme: const TextTheme(),
     splashFactory: NoSplash.splashFactory,
     highlightColor: Colors.transparent,
     splashColor: Colors.transparent,

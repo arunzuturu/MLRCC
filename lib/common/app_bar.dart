@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../constants/ui_constants.dart';
 
 class CustomAppBar extends StatelessWidget {
-  final title;
+  final String title;
   final List<Widget>? actions;
   const CustomAppBar({
     super.key,

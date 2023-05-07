@@ -27,7 +27,7 @@ class ExploreController extends StateNotifier<bool> {
         super(false);
 
   /// Fetches explore posts from the API and updates the state.
-  void getExplorePosts(BuildContext context) async {
+  Future<void> getExplorePosts(BuildContext context) async {
     state = true;
     final pPosts = await _exploreAPI.getPosts();
     pPosts.fold(

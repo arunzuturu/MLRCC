@@ -2,12 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:mlrcc/common/app_bar.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/features/auth/controller/auth_controller.dart';
-import 'package:mlrcc/features/home/views/home_view.dart';
 import 'package:mlrcc/features/questions/controller/questions_controller.dart';
-import 'package:mlrcc/features/questions/views/add_comment.dart';
 import 'package:mlrcc/features/questions/views/add_question.dart';
 import 'package:mlrcc/features/questions/views/question_view.dart';
 import 'package:mlrcc/features/user/controller/user_controller.dart';
@@ -26,14 +23,9 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
   @override
   Widget build(BuildContext context) {
     final user = ref.watch(userDataProvider)!;
-    void getImage() async {}
-    final timeTableUrl =
+    
+    const timeTableUrl =
         "https://storage.googleapis.com/mlrcc-e954a.appspot.com/timetable/1683336487380.png?GoogleAccessId=firebase-adminsdk-ztle0%40mlrcc-e954a.iam.gserviceaccount.com&Expires=16447017600&Signature=dsDUcqxYrsVLynDJGFd2DC%2BbxQBEDqow%2BOTbeqRhdOy2o2FVngdJyOoD4gaCjsLdn9vdDuI7HZ6usr64hVf8Ho7GF4eVz2peAWF8E9%2B%2Byyy5w5ZrsffJL6XMuucB2tL%2Beo%2FYh%2B6zfAf9lg%2BM3DsAb5DdffggsAQWMjjjN5vtR3Jlk3c2Umn9t9y0YpW6QZRocQv8pEAKDYKUBG4TkDkNNvBNnXP7XnLTAsJ%2F5r0oUe913mcQrGggAklGzHdZlbqOxV6t4D6y0Hxel28YL9nWYXaVc6n4Eu%2Bk4h5VRS80r0lqEh23iYl7u7PQvNBfL7M7r23pFjWSeHYffnq6T5hA6A%3D%3D";
-    @override
-    void initState() {
-      super.initState();
-      getImage();
-    }
 
     final appBar = CustomAppBar(
       title: 'Profile',
@@ -55,21 +47,19 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
       child: SafeArea(
           child: Scaffold(
         floatingActionButton: FloatingActionButton(
-          backgroundColor:Pallete.accentColor,
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => AddQuestionScreen()),
-            );
-
-          },
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
+            backgroundColor: Pallete.accentColor,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AddQuestionScreen()),
+              );
+            },
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(10),
+              ),
             ),
-          ),
-          child: Icon(Icons.add_comment)
-        ),
+            child: const Icon(Icons.add_comment)),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(
@@ -80,7 +70,7 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
                   height: size.height * 0.05,
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 20),
+                  margin: const EdgeInsets.only(left: 20),
                   child: Row(
                     children: [
                       CircleAvatar(
@@ -116,7 +106,7 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
                   height: size.height * 0.05,
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 20),
+                  margin: const EdgeInsets.only(left: 20),
                   child: const Align(
                     alignment: Alignment.centerLeft,
                     child: SectionChip(
@@ -141,8 +131,8 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
                     child: CachedNetworkImage(
                       imageUrl: timeTableUrl,
                       placeholder: (context, url) =>
-                          CircularProgressIndicator(),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
+                          const CircularProgressIndicator(),
+                      errorWidget: (context, url, error) => const Icon(Icons.error),
                     ),
                   ),
                 ),
@@ -150,7 +140,7 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
                   height: size.height * 0.08,
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 20),
+                  margin: const EdgeInsets.only(left: 20),
                   child: const Align(
                     alignment: Alignment.centerLeft,
                     child: SectionChip(
@@ -164,21 +154,24 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
                 ),
                 //add question button
                 Container(
-                  margin: EdgeInsets.only(left: 20),
+                  margin: const EdgeInsets.only(left: 20),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Pallete.greyColor,
+                        backgroundColor: Pallete.greyColor,
                         elevation: 0,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(100),
                         ),
                       ),
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>AddQuestionScreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AddQuestionScreen()));
                       },
-                      child: Text(
+                      child: const Text(
                         'Add Question',
                         style: TextStyle(
                           color: Pallete.whiteColor,
@@ -189,16 +182,16 @@ class _UserProfileViewState extends ConsumerState<UserProfileView> {
                     ),
                   ),
                 ),
-                Container(
+                SizedBox(
                   width: size.width * 0.9,
                   child: ListView.builder(
                       shrinkWrap: true,
                       itemCount: question.length,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, i) {
                         return Container(
                           margin: const EdgeInsets.all(8.0),
-                          child: Container(
+                          child: SizedBox(
                               width: 243,
                               height: 160,
                               child: QuestionCard(

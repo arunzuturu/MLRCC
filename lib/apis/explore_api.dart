@@ -92,7 +92,7 @@ class ExploreAPI implements IExploreAPI {
       });
 
       // Send a POST request to the API with the FormData object as the request body.
-      var res = await dio.post('${apiUrl}postExplore', data: data);
+      await dio.post('${apiUrl}postExplore', data: data);
 
       // Return a Right with a null value to indicate success.
       return right(null);

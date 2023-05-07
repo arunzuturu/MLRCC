@@ -1,11 +1,8 @@
-import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mlrcc/config/config.dart';
 import 'package:mlrcc/core/core.dart';
-import 'package:mlrcc/modals/pposts_modal.dart';
 import 'package:mlrcc/modals/questions_modal.dart';
 
 final questionsAPIProvider = Provider((ref) => QuestionsAPI());
@@ -27,19 +24,14 @@ class QuestionsAPI implements IPPostsAPI {
       });
       return right(pPosts);
     } catch (e) {
-      throw Failure(e.toString(), StackTrace.empty);
+      return left(Failure(e.toString(), StackTrace.empty));
     }
   }
 
-  @override
-  FutureEither<List<QuestionsModal>> addQuestion(
-      String questions) async {
+  FutureEither<List<QuestionsModal>> addQuestion(String questions) async {
     try {
       final roadmapData = await dio.post('${apiUrl}createQuestion',
-          data: {
-            'question': questions,
-            'comments': [] 
-          });
+          data: {'question': questions, 'comments': []});
       List<QuestionsModal> pPosts = [];
       roadmapData.data['data'].forEach((element) {
         pPosts.add(QuestionsModal.fromJson(element));
@@ -49,5 +41,4 @@ class QuestionsAPI implements IPPostsAPI {
       throw Failure(e.toString(), StackTrace.empty);
     }
   }
-  
 }

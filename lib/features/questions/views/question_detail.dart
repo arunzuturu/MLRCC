@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icon.dart';
 import 'package:mlrcc/common/app_bar.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/features/home/home_widgets.dart';
@@ -17,7 +16,6 @@ class QuestionDetail extends StatefulWidget {
 }
 
 class _QuestionDetailState extends State<QuestionDetail> {
-  TextEditingController  _textEditingController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     var question = widget.question;
@@ -27,10 +25,10 @@ class _QuestionDetailState extends State<QuestionDetail> {
         onPressed: (){
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddCommentScreen(postId: "!")),
+            MaterialPageRoute(builder: (context) => const AddCommentScreen(postId: "!")),
           );
         },
-        child: Icon(Icons.add_comment),
+        child: const Icon(Icons.add_comment),
       ),
       backgroundColor: Pallete.backgroundColor,
       body: SafeArea(
@@ -41,9 +39,9 @@ class _QuestionDetailState extends State<QuestionDetail> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomAppBar(title: "Question"),
+                const CustomAppBar(title: "Question"),
                 Center(child: QuestionCard(isButton: false,question: question,)),
-                SizedBox(height: 50,),
+                const SizedBox(height: 50,),
                 Text("Comments", style: largeHeading2,),
                 SizedBox(
                   height: size.height * 0.47,

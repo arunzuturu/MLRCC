@@ -36,17 +36,17 @@ class UserModal {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['email'] = this.email;
-    data['rno'] = this.rno;
-    data['uid'] = this.uid;
-    data['branch'] = this.branch;
-    data['semester'] = this.semester;
-    data['year'] = this.year;
-    data['phone'] = this.phone;
-    data['section'] = this.section;
-    data['imageUrl'] = this.imageUrl;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['email'] = email;
+    data['rno'] = rno;
+    data['uid'] = uid;
+    data['branch'] = branch;
+    data['semester'] = semester;
+    data['year'] = year;
+    data['phone'] = phone;
+    data['section'] = section;
+    data['imageUrl'] = imageUrl;
     return data;
   }
 }

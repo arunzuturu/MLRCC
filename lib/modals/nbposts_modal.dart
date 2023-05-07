@@ -17,12 +17,12 @@ class NBPostsModal {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['title'] = this.title;
-    data['description'] = this.description;
-    data['hastag'] = this.hastag;
-    data['link'] = this.link;
-    data['createdAt'] = this.createdAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['title'] = title;
+    data['description'] = description;
+    data['hastag'] = hastag;
+    data['link'] = link;
+    data['createdAt'] = createdAt;
     return data;
   }
 }

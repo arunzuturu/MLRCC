@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mlrcc/features/attendance/controllers/attendance_controller.dart';
 import 'package:mlrcc/features/auth/views/insert_user_details.dart';
 import 'package:mlrcc/features/explore/controller/explore_controller.dart';
 import 'package:mlrcc/features/explore/views/explore.dart';
@@ -14,7 +15,6 @@ import 'package:mlrcc/features/user/views/user_profile.dart';
 import 'package:mlrcc/theme/pallete.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-import '../../../constants/ui_constants.dart';
 
 class NavView extends ConsumerStatefulWidget {
   final String uid;
@@ -42,10 +42,8 @@ class NavView extends ConsumerStatefulWidget {
 
 class _NavViewState extends ConsumerState<NavView> {
   int _currentIndex = 0;
-  int _page = 0;
   void onPageChange(int index) {
     setState(() {
-      _page = index;
     });
   }
 
@@ -53,33 +51,39 @@ class _NavViewState extends ConsumerState<NavView> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      getData() {
-        ref
-            .watch(userControllerProvider.notifier)
+      getData() async {
+        await ref
+            .read(userControllerProvider.notifier)
             .getUserData(context: context, uid: widget.uid);
-        print(1);
-        var user = ref.watch(userDataProvider);
-        print(2);
-        // if (user == null) {
-        //   Navigator.popUntil(context, (route) => false);
-        //   Navigator.push(
-        //       context,
-        //       InsertUserDetailsView.route(
-        //           widget.uid, widget.name, widget.email, widget.imageUrl));
-        // }
-
-        ref.watch(pPostsControllerProvider.notifier).getPPosts(context);
-        ref.watch(nBPostsControllerProvider.notifier).getNBPosts(context);
-        ref.watch(questionsControllerProvider.notifier).getQuestions(context);
-        ref.watch(exploreControllerProvider.notifier).getExplorePosts(context);
-        ref.watch(userControllerProvider.notifier).getTimeTableUrl(
+        var user = ref.read(userDataProvider);
+        // print(user!.uid);
+        if (user == null && context.mounted) {
+          Navigator.popUntil(context, (route) => false);
+          Navigator.push(
+              context,
+              InsertUserDetailsView.route(
+                  widget.uid, widget.name, widget.email, widget.imageUrl));
+        }
+        if (context.mounted){
+        await ref.read(pPostsControllerProvider.notifier).getPPosts(context);
+        await ref.read(nBPostsControllerProvider.notifier).getNBPosts(context);
+        await ref
+            .read(questionsControllerProvider.notifier)
+            .getQuestions(context);
+        await ref
+            .read(exploreControllerProvider.notifier)
+            .getExplorePosts(context);
+        await ref
+            .read(attendanceControllerProvider.notifier)
+            .getAttendance(context, user!.rno!);
+        await ref.read(userControllerProvider.notifier).getTimeTableUrl(
             context: context,
-            branch: user!.branch!,
+            branch: user.branch!,
             year: user.year!,
             section: user.section!);
       }
-
-      getData();
+      }
+        getData();
     });
   }
 
@@ -138,7 +142,6 @@ class _NavViewState extends ConsumerState<NavView> {
                   textStyle: TextStyle(color: Pallete.whiteColor),
                 ),
                 GButton(
-                  
                   icon: LineIcons.user,
                   text: 'Profile',
                   textStyle: TextStyle(color: Pallete.whiteColor),

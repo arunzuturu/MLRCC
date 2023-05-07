@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mlrcc/config/config.dart';
 import 'package:mlrcc/modals/user_modal.dart';
@@ -25,7 +24,6 @@ class UserAPI extends IUserAPI {
   FutureEither<UserModal> getUserData(String uid) async {
     try {
       final userData = await dio.get('${apiUrl}getUser', data: {"uid": uid});
-      print(userData.data);
       final userDataList = UserModal.fromJson(userData.data['data']);
       return right(userDataList);
     } catch (e) {
@@ -46,7 +44,6 @@ class UserAPI extends IUserAPI {
     required String section,
   }) async {
     try {
-      print('saveUserData');
       final userData = await dio.post('${apiUrl}signup', data: {
         "name": name,
         "email": email,
@@ -59,7 +56,6 @@ class UserAPI extends IUserAPI {
         "section": section,
         "imageUrl": imageUrl
       });
-      print(userData.data);
       final userDataList = UserModal.fromJson(userData.data['data']);
       return right(userDataList);
     } catch (e) {
@@ -77,7 +73,7 @@ class UserAPI extends IUserAPI {
           data: {"branch": branch, "year": year, "section": section});
       return right(timetableData.data['data']['imageURL']);
     } catch (e) {
-      throw Failure(e.toString(), StackTrace.empty);
+      return left(Failure(e.toString(), StackTrace.empty));
     }
   }
 
@@ -105,7 +101,6 @@ class UserAPI extends IUserAPI {
         "section": section
       });
       final userDataJson = jsonDecode(userData.data);
-      print(userDataJson);
       final userDataList = userDataJson
           .map((e) => UserModal.fromJson(e as Map<String, dynamic>));
       return right(userDataList.first);

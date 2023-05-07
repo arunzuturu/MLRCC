@@ -24,7 +24,7 @@ class LoginView extends ConsumerWidget {
             children: [
               Image.asset('assets/images/login_page_gif.gif'),
               Container(),
-              Spacer(),
+              const Spacer(),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
@@ -46,7 +46,7 @@ class LoginView extends ConsumerWidget {
                           'Login to explore options',
                           style: subHeading,
                         ),
-                        Spacer(),
+                        const Spacer(),
                         
                       ],
                     ),
@@ -55,7 +55,7 @@ class LoginView extends ConsumerWidget {
               ),
               ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Pallete.secondaryColor,
+                          backgroundColor: Pallete.secondaryColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -67,12 +67,12 @@ class LoginView extends ConsumerWidget {
                           children: [
                             Image.asset('assets/images/google_icon.png', height: 20, width: 20,	),
 
-                            Text('Login with Google', style: TextStyle(fontWeight: FontWeight.bold),),
+                            const Text('Login with Google', style: TextStyle(fontWeight: FontWeight.bold),),
 
                           ],
                         ),
                       ),
-              Spacer(),
+              const Spacer(),
             ],
           ),
         ),

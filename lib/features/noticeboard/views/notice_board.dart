@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:line_icons/line_icon.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
-import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/features/home/home_widgets.dart';
 import 'package:mlrcc/features/noticeboard/controller/nb_posts_controller.dart';
-import 'package:mlrcc/features/questions/controller/questions_controller.dart';
-import 'package:mlrcc/modals/nbposts_modal.dart';
 import 'package:mlrcc/theme/pallete.dart';
 
 import '../../../common/app_bar.dart';
@@ -23,8 +19,6 @@ class _NoticeBoardViewState extends ConsumerState<NoticeBoardView> {
   @override
   Widget build(BuildContext context) {
     final nbData = ref.watch(nBPostsDataProvider)!;
-    final questions = ref.watch(questionsDataProvider)!;
-    print(questions);
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Pallete.backgroundColor,
@@ -39,7 +33,7 @@ class _NoticeBoardViewState extends ConsumerState<NoticeBoardView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomAppBar(
+                const CustomAppBar(
                   title: 'Notice Board',
                 ),
                 SizedBox(

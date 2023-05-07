@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mlrcc/apis/auth_api.dart';
@@ -18,13 +17,11 @@ final userControllerProvider =
 });
 
 class UserController extends StateNotifier<bool> {
-  final AuthAPI _authAPI;
   final UserAPI _userAPI;
   final Ref _ref;
   UserController(
       {required AuthAPI authAPI, required UserAPI userAPI, required Ref ref})
-      : _authAPI = authAPI,
-        _userAPI = userAPI,
+      : _userAPI = userAPI,
         _ref = ref,
         super(false);
 
@@ -62,7 +59,7 @@ class UserController extends StateNotifier<bool> {
     state = false;
   }
 
-  void getUserData({
+  Future<void> getUserData({
     required BuildContext context,
     required String uid,
   }) async {

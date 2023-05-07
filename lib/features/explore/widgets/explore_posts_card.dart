@@ -54,7 +54,8 @@ class PostCard extends StatelessWidget {
                         width: size.width * 0.25,
                         child: Text(
                           name,
-                          overflow: TextOverflow.fade,
+                          overflow: TextOverflow.clip,
+                          maxLines: 1,
                           style: nbHeading.copyWith(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,

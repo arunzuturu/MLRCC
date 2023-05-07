@@ -30,15 +30,15 @@ class PPostsModal {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['title'] = this.title;
-    data['uid'] = this.uid;
-    data['text'] = this.text;
-    data['link'] = this.link;
-    data['imageURL'] = this.imageURL;
-    data['createdAt'] = this.createdAt;
-    data['__v'] = this.iV;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['title'] = title;
+    data['uid'] = uid;
+    data['text'] = text;
+    data['link'] = link;
+    data['imageURL'] = imageURL;
+    data['createdAt'] = createdAt;
+    data['__v'] = iV;
     return data;
   }
 }

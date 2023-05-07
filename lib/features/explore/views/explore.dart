@@ -2,17 +2,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:line_icons/line_icon.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
-import 'package:mlrcc/constants/ui_constants.dart';
+import 'package:mlrcc/common/common.dart';
 import 'package:mlrcc/features/explore/controller/explore_controller.dart';
-import 'package:mlrcc/features/explore/views/explore_fullview.dart';
 import 'package:mlrcc/features/explore/widgets/explore_posts_card.dart';
-import 'package:mlrcc/features/home/home_widgets.dart';
 import 'package:mlrcc/features/user/controller/user_controller.dart';
 import 'package:mlrcc/theme/pallete.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../../common/app_bar.dart';
 
 class ExploreView extends ConsumerStatefulWidget {
   const ExploreView({Key? key}) : super(key: key);
@@ -22,11 +18,11 @@ class ExploreView extends ConsumerStatefulWidget {
 }
 
 class _ExploreViewState extends ConsumerState<ExploreView> {
-  Future<void> _pickImage(ImageSource source, String photoUrl, String name) async {
-    
-    final ImagePicker _picker = ImagePicker();
-    final XFile? pickedFile = await _picker.pickImage(source: source);
-    File file = File( pickedFile!.path );
+  Future<void> _pickImage(
+      ImageSource source, String photoUrl, String name) async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? pickedFile = await picker.pickImage(source: source);
+    File file = File(pickedFile!.path);
     createExplorePost(image: file, photoUrl: photoUrl, name: name);
   }
 
@@ -42,10 +38,11 @@ class _ExploreViewState extends ConsumerState<ExploreView> {
   @override
   Widget build(BuildContext context) {
     final explore = ref.watch(exploreDataProvider) ?? [];
+    final loader = ref.watch(exploreControllerProvider);
     final size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;
     final user = ref.watch(userDataProvider)!;
-    return Scaffold(
+    return (loader)?const Loader():Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Pallete.accentColor,
@@ -57,17 +54,19 @@ class _ExploreViewState extends ConsumerState<ExploreView> {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   ListTile(
-                    leading: Icon(Icons.camera_alt),
-                    title: Text('Take a picture'),
+                    leading: const Icon(Icons.camera_alt),
+                    title: const Text('Take a picture'),
                     onTap: () {
-                      _pickImage(ImageSource.camera, user.imageUrl!, user.name!);
+                      _pickImage(
+                          ImageSource.camera, user.imageUrl!, user.name!);
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.image),
-                    title: Text('Choose from gallery'),
+                    leading: const Icon(Icons.image),
+                    title: const Text('Choose from gallery'),
                     onTap: () {
-                      _pickImage(ImageSource.gallery, user.imageUrl!, user.name!);
+                      _pickImage(
+                          ImageSource.gallery, user.imageUrl!, user.name!);
                       Navigator.pop(context);
                     },
                   ),
@@ -76,7 +75,7 @@ class _ExploreViewState extends ConsumerState<ExploreView> {
             },
           );
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       backgroundColor: Pallete.backgroundColor,
       body: SafeArea(
@@ -101,7 +100,6 @@ class _ExploreViewState extends ConsumerState<ExploreView> {
                           .getExplorePosts(context);
                     },
                     child: GridView.builder(
-                      
                       itemCount: explore.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           childAspectRatio: 0.65,

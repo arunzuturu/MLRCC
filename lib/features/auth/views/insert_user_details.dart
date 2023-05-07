@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icon.dart';
-import 'package:mlrcc/common/app_bar.dart';
 import 'package:mlrcc/constants/ui_constants.dart';
 import 'package:mlrcc/core/utils.dart';
 import 'package:mlrcc/features/user/controller/user_controller.dart';
@@ -37,7 +36,10 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
   // create controller for textfield
   final phoneNumber = TextEditingController();
   final rollno = TextEditingController();
-
+  var branch = 'Enter your branch';
+  var semester = 1;
+  var year = 1;
+  var section = 'Enter your section';
   final OutlineInputBorder border = OutlineInputBorder(
     borderSide: const BorderSide(
       color: Pallete.accentColor,
@@ -46,10 +48,6 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
   );
   @override
   Widget build(BuildContext context) {
-    var branch = 'Enter your branch';
-    var semester = 1;
-    var year = 1;
-    var section = 'Enter your section';
     final size = MediaQuery.of(context).size;
     return Container(
       color: Pallete.backgroundColor,
@@ -68,7 +66,7 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
                   const Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Enter your details',
+                      'Few more details',
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -94,7 +92,7 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
                     height: size.height * 0.02,
                   ),
                   TextField(
-                    inputFormatters: [],
+                    inputFormatters: const [],
                     controller: rollno,
                     decoration: InputDecoration(
                       border: border,
@@ -115,9 +113,7 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
                       prefixIcon: LineIcon.book(),
                     ),
                     onChanged: (value) {
-                      setState(() {
-                        branch = value.toString();
-                      });
+                      branch = value.toString();
                     },
                     value: branch,
                     items: UIConstants.branchDetails,
@@ -133,9 +129,7 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
                       prefixIcon: LineIcon.penFancy(),
                     ),
                     onChanged: (value) {
-                      setState(() {
-                        section = value.toString();
-                      });
+                      section = value.toString();
                     },
                     value: section,
                     items: UIConstants.sectionDetails,
@@ -184,6 +178,13 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
                     height: size.height * 0.08,
                     child: ElevatedButton(
                       onPressed: () {
+                        if (phoneNumber.text.isEmpty ||
+                            rollno.text.isEmpty ||
+                            branch == 'Enter your branch' ||
+                            section == 'Enter your section') {
+                          showSnackBar(context, 'Please fill all the details');
+                          return;
+                        }
                         ref.read(userControllerProvider.notifier).saveUserData(
                             context: context,
                             uid: widget.uid,
@@ -198,8 +199,7 @@ class _InsertUserDetailsViewState extends ConsumerState<InsertUserDetailsView> {
                             imageUrl: widget.imageUrl);
                       },
                       style: ElevatedButton.styleFrom(
-                        elevation: 30,
-                        primary: Pallete.accentColor,
+                        elevation: 30, backgroundColor: Pallete.accentColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),

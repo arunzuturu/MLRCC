@@ -1,13 +1,9 @@
-import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mlrcc/apis/user_api.dart';
 import 'package:mlrcc/config/config.dart';
 import 'package:mlrcc/core/core.dart';
 import 'package:mlrcc/modals/nbposts_modal.dart';
-import 'package:mlrcc/modals/pposts_modal.dart';
 
 final nBPostsAPIProvider = Provider((ref) => NBPostsAPI());
 final dio = Dio();

@@ -23,7 +23,7 @@ class PPostsController extends StateNotifier<bool> {
         _ref = ref,
         super(false);
 
-  void getPPosts(BuildContext context) async {
+  Future<void> getPPosts(BuildContext context) async {
     state = true;
     final pPosts = await _pPostsAPI.getPPosts();
     pPosts.fold((l) => showSnackBar(context, l.message), (pPosts) {
